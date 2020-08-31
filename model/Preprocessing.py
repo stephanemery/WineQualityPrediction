@@ -1,4 +1,4 @@
-import sys
+import argparse
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
@@ -15,7 +15,7 @@ def normalize(x):
 
     return pd.DataFrame(result, columns=x.columns, index=x.index)
 
-def remove_outliners(x):
+def remove_outliers(x):
     result = x.copy()
     # Remove outliners
     for i in range(result.shape[1]):
@@ -29,7 +29,9 @@ def remove_outliners(x):
 
     return result
 
-def preprocess(scalerType):
+def preprocess(args, scalerType):
+    options = ''
+
     # Load data
     red_wine = pd.read_csv('../data/winequality-red.csv')
     white_wine = pd.read_csv('../data/winequality-white.csv')
@@ -39,32 +41,36 @@ def preprocess(scalerType):
     white_wine = white_wine.dropna(axis='index')
     
     # Remove outliers
-    red_wine = remove_outliners(red_wine)
-    white_wine = remove_outliners(white_wine)
+    if args.remove_outliers:
+        red_wine = remove_outliers(red_wine)
+        white_wine = remove_outliers(white_wine)
+        options += 'ro_'
 
     # Normalize 
-    red_wine = normalize(red_wine)
-    white_wine = normalize(white_wine)
+    if args.normalize:
+        red_wine = normalize(red_wine)
+        white_wine = normalize(white_wine)
+        options += 'n_'
 
     # Save
-    red_wine.to_csv('../data/normalized_red.csv',index=False)
-    white_wine.to_csv('../data/normalized_white.csv',index=False)
+    red_wine.to_csv('../data/preprocessed_'+options+'red.csv',index=False)
+    white_wine.to_csv('../data/preprocessed_'+options+'white.csv',index=False)
 
     print('Preprocessing done !')
 
+def parse_arguments():
+    parser = argparse.ArgumentParser(description='Preprocess wine data.')
+    parser.add_argument('scaler', type=str, help='The name of the scaler : "StandardScaler", "MinMaxScaler"')
+    parser.add_argument('-n','--normalize', help='Normalize data', action='store_true')
+    parser.add_argument('-ro','--remove_outliers', help='Remove outliers',action='store_true')
 
-if __name__ == "__main__":    
-    if len(sys.argv) < 2 or sys.argv[1] == '-h':
-        print('Usage : Preprocessing.py [-h]')
-        print('\r\npositional arguments:\r\n\t\tThe name of the scaler : "StandardScaler", "MinMaxScaler"')
-        sys.exit()
+    return parser.parse_args()
 
-    if sys.argv[1] != 'StandardScaler' and sys.argv[1] != 'MinMaxScaler':
-        print('You should select "StandardScaler" or "MinMaxScaler"')
-        sys.exit()
-
+if __name__ == "__main__":   
+    args = parse_arguments()
+    
     print('Preprocessing...')
 
-    scalerType = StandardScaler if sys.argv[1] == 'StandardScaler' else MinMaxScaler
-    preprocess(scalerType)
+    scalerType = StandardScaler if args.scaler == 'StandardScaler' else MinMaxScaler
+    preprocess(args, scalerType)
     
