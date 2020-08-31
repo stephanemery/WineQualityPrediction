@@ -4,11 +4,8 @@ Algorithm to be used
 
 1.Preprocessing
   - Drop NaN values
+  - Outliers removal
   - Normalize data (Standard or MinMax scaler)
-  - FS (feature selection)
-  - OR (outliner removal)
-  - CR (class reduction)
-  - SMOTE (Synthetic minority oversampling)
   
 2.Model
 - Regression
