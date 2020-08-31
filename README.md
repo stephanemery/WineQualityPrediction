@@ -1,6 +1,7 @@
 ## Wine quality prediction from its physicochemical properties
 
 Algorithm to be used
+
 1.Preprocessing
   - Drop NaN values
   - Normalize data (Standard or MinMax scaler)
