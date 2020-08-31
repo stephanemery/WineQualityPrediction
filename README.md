@@ -1,12 +1,12 @@
-## Wine quality prediction from its physicochemical properties
+##Wine quality prediction from its physicochemical properties
 
-#Algorithm to be used
-Preprocessing
+Algorithm to be used
+1.Preprocessing
   -FS (feature selection)
   -OR (outliner removal)
   -CR (class reduction)
   -SMOTE (Synthetic minority oversampling)
-Model
+2.Model
 -Regression
   -SVM 
   -MNN
