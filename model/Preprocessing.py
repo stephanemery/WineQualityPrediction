@@ -1,6 +1,8 @@
 import argparse
 import pandas as pd
 import numpy as np
+import os
+import requests
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 def normalize(x):
@@ -32,9 +34,26 @@ def remove_outliers(x):
 def preprocess(args, scalerType):
     options = ''
 
+    # Paths
+    path_dir = os.path.dirname(os.path.abspath(__file__))
+    path_red_wine = path_dir + '/../data/winequality-red.csv'
+    path_white_wine = path_dir + '/../data/winequality-white.csv'
+    
+    # If data files don't exist, download them
+    # Red wine data
+    if not os.path.isfile(path_red_wine):
+        print('Downloading red wine data...')
+        my_file = requests.get('https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv')
+        open(path_red_wine, 'wb').write(my_file.content)
+    # White wine data
+    if not os.path.isfile(path_white_wine):
+        print('Downloading white wine data...')
+        my_file = requests.get('https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv')
+        open(path_white_wine, 'wb').write(my_file.content)
+
     # Load data
-    red_wine = pd.read_csv('../data/winequality-red.csv')
-    white_wine = pd.read_csv('../data/winequality-white.csv')
+    red_wine = pd.read_csv(path_red_wine)
+    white_wine = pd.read_csv(path_white_wine)
 
     # Drop NaN values
     red_wine = red_wine.dropna(axis='index')
@@ -53,8 +72,8 @@ def preprocess(args, scalerType):
         options += 'n_'
 
     # Save
-    red_wine.to_csv('../data/preprocessed_'+options+'red.csv',index=False)
-    white_wine.to_csv('../data/preprocessed_'+options+'white.csv',index=False)
+    red_wine.to_csv(path_dir + '/../data/preprocessed_'+options+'red.csv',index=False)
+    white_wine.to_csv(path_dir + '/../data/preprocessed_'+options+'white.csv',index=False)
 
     print('Preprocessing done !')
 
