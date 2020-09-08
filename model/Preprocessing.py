@@ -35,9 +35,9 @@ def preprocess(args, scalerType):
     options = ''
 
     # Paths
-    path_dir = os.path.dirname(os.path.abspath(__file__))
-    path_red_wine = path_dir + '/../data/winequality-red.csv'
-    path_white_wine = path_dir + '/../data/winequality-white.csv'
+    path_dir = './data'#os.path.dirname(os.path.abspath(__file__))
+    path_red_wine = path_dir + '/winequality-red.csv'
+    path_white_wine = path_dir + '/winequality-white.csv'
     
     # If data files don't exist, download them
     # Red wine data
@@ -72,8 +72,8 @@ def preprocess(args, scalerType):
         options += 'n_'
 
     # Save
-    red_wine.to_csv(path_dir + '/../data/preprocessed_'+options+'red.csv',index=False)
-    white_wine.to_csv(path_dir + '/../data/preprocessed_'+options+'white.csv',index=False)
+    red_wine.to_csv(path_dir + '/preprocessed_'+options+'red.csv',index=False)
+    white_wine.to_csv(path_dir + '/preprocessed_'+options+'white.csv',index=False)
 
     print('Preprocessing done !')
 
