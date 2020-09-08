@@ -52,8 +52,8 @@ def preprocess(args, scalerType):
         open(path_white_wine, 'wb').write(my_file.content)
 
     # Load data
-    red_wine = pd.read_csv(path_red_wine)
-    white_wine = pd.read_csv(path_white_wine)
+    red_wine = pd.read_csv(path_red_wine, sep=';')
+    white_wine = pd.read_csv(path_white_wine, sep=';')
 
     # Drop NaN values
     red_wine = red_wine.dropna(axis='index')
