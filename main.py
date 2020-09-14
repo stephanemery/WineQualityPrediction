@@ -1,6 +1,7 @@
 import sys
 import pandas as pd
 from model.MultiLinearRegression import MultiLinearRegression
+from model.KNN import KNN
 from sklearn.model_selection import train_test_split
 
 if __name__ == '__main__':
@@ -25,6 +26,8 @@ if __name__ == '__main__':
     models = []
     # Add multi linear regression
     models.append(MultiLinearRegression())
+    # Add KNN regressor
+    models.append(KNN())
 
     # Train
     for m in models:
@@ -36,6 +39,4 @@ if __name__ == '__main__':
 
     # Print scores
     for m in models:
-        print(m)
-
-    
+        print(m)    
