@@ -1,8 +1,11 @@
 import sys
 import pandas as pd
 from model.MultiLinearRegression import MultiLinearRegression
+<<<<<<< HEAD
 from model.KNN import KNN
 from model.SVM import SVM
+=======
+>>>>>>> 8e5455b6331ebeb7b8ea62c80aebd6419d347a00
 from sklearn.model_selection import train_test_split
 
 if __name__ == '__main__':
