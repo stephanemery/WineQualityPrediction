@@ -5,7 +5,7 @@ import os
 import requests
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
-def normalize(x):
+def normalize(x, scalerType):
     result = np.zeros(x.shape)
     # Normalize data
     for i in range(x.shape[1]):
@@ -31,7 +31,7 @@ def remove_outliers(x):
 
     return result
 
-def preprocess(args, scalerType):
+def preprocess(norm, rm_outliers, scalerType):
     options = ''
 
     # Paths
@@ -60,15 +60,16 @@ def preprocess(args, scalerType):
     white_wine = white_wine.dropna(axis='index')
     
     # Remove outliers
-    if args.remove_outliers:
+    if rm_outliers:
         red_wine = remove_outliers(red_wine)
         white_wine = remove_outliers(white_wine)
         options += 'ro_'
 
     # Normalize 
-    if args.normalize:
-        red_wine = normalize(red_wine)
-        white_wine = normalize(white_wine)
+    if norm:
+        scalerType = StandardScaler if scalerType == 'StandardScaler' else MinMaxScaler
+        red_wine = normalize(red_wine, scalerType)
+        white_wine = normalize(white_wine, scalerType)
         options += 'n_'
 
     # Save
@@ -90,6 +91,5 @@ if __name__ == "__main__":
     
     print('Preprocessing...')
 
-    scalerType = StandardScaler if args.scaler == 'StandardScaler' else MinMaxScaler
-    preprocess(args, scalerType)
+    preprocess(args.normalize, args.remove_outliers, args.scaler)
     
