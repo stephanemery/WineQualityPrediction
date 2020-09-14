@@ -1,4 +1,4 @@
-from Machine import Machine
+from .Machine import Machine
 from sklearn.linear_model import LinearRegression
 
 class MultiLinearRegression(Machine):
