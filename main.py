@@ -42,5 +42,9 @@ if __name__ == '__main__':
 
     # Print scores
     for m in models:
+<<<<<<< HEAD
         print(m)    
         
+=======
+        print(m)    
+>>>>>>> Fix merge issue
