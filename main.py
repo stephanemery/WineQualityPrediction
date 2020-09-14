@@ -1,26 +1,32 @@
 import sys
 import pandas as pd
+from model.Preprocessing import preprocess
 from model.MultiLinearRegression import MultiLinearRegression
 from model.KNN import KNN
 from model.SVM import SVM
 from sklearn.model_selection import train_test_split
 
 if __name__ == '__main__':
+    # Parameters
+    normalize = True
+    remove_outliers = True
+    scalerType='MinMaxScaler'
+    test_size = 0.3
+
     # Preprocess
-    # Remove outliers and normalize
-    script_descriptor = open("./model/Preprocessing.py")
-    script = script_descriptor.read()
-    sys.argv = ["Preprocessing.py", "StandardScaler", "-n", "-ro"]
-    # Run the preprocess script
-    exec(script)
-    script_descriptor.close()
+    preprocess(normalize, remove_outliers, scalerType)
 
     # Load data
-    red_wine = pd.read_csv('./data/preprocessed_ro_n_red.csv')
-    white_wine = pd.read_csv('./data/preprocessed_ro_n_white.csv')
+    options = '_'
+    if remove_outliers :
+        options+='ro_'
+    if normalize :
+        options+='n_'
+
+    red_wine = pd.read_csv('./data/preprocessed'+options+'red.csv')
+    white_wine = pd.read_csv('./data/preprocessed'+options+'white.csv')
     
     # Split into train/test dataset
-    test_size = 0.3
     train_set, test_set = train_test_split(red_wine, test_size=test_size, shuffle=True)
     
     # Models
@@ -42,4 +48,4 @@ if __name__ == '__main__':
 
     # Print scores
     for m in models:
-        print(m)  
+        print(m)    
