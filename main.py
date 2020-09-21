@@ -10,11 +10,12 @@ if __name__ == '__main__':
     # Parameters
     normalize = True
     remove_outliers = True
-    scalerType='MinMaxScaler'
+    scalerType='StandardScaler'
     test_size = 0.3
+    max_components = None
 
     # Preprocess
-    preprocess(normalize, remove_outliers, scalerType)
+    preprocess(normalize, remove_outliers, scalerType, max_components)
 
     # Load data
     options = '_'
@@ -25,27 +26,48 @@ if __name__ == '__main__':
 
     red_wine = pd.read_csv('./data/preprocessed'+options+'red.csv')
     white_wine = pd.read_csv('./data/preprocessed'+options+'white.csv')
-    
+        
     # Split into train/test dataset
-    train_set, test_set = train_test_split(red_wine, test_size=test_size, shuffle=True)
-    
+    red_train_set, red_test_set = train_test_split(red_wine, test_size=test_size, shuffle=True)
+    white_train_set, white_test_set = train_test_split(white_wine, test_size=test_size, shuffle=True)
+
     # Models
-    models = []
+    red_models = []
+    white_models = []
     # Add multi linear regression
-    models.append(MultiLinearRegression())
+    red_models.append(MultiLinearRegression())
+    white_models.append(MultiLinearRegression())
     # Add KNN regressor
-    models.append(KNN())
+    red_models.append(KNN())
+    white_models.append(KNN())
     # Add SVM regressor
-    models.append(SVM(0, 0.5))
+    red_models.append(SVM(0, 0.5))
+    white_models.append(SVM(0, 0.5))
 
-    # Train
-    for m in models:
-        m.train(train_set.to_numpy()[:, :-1], train_set.to_numpy()[:, -1])
+    # Train red wine model
+    for m in red_models:
+        m.train(red_train_set.iloc[:, :-1], red_train_set.iloc[:, -1])
 
-    # Test 
-    for m in models:
-        m.test(test_set.to_numpy()[:, :-1], test_set.to_numpy()[:, -1])
+    # Train white wine model
+    for m in white_models:
+        m.train(white_train_set.iloc[:, :-1], white_train_set.iloc[:, -1])
 
-    # Print scores
-    for m in models:
+    # Test red wine model
+    for m in red_models:
+        m.test(red_test_set.iloc()[:, :-1], red_test_set.iloc()[:, -1])
+
+    # Test white wine model
+    for m in white_models:
+        m.test(white_test_set.iloc()[:, :-1], white_test_set.iloc()[:, -1])
+
+    # Print scores for red wine
+    print("Score for the red wine :")
+    for m in red_models:
+        print(m)    
+
+    print('')
+
+    # Print scores for white wine
+    print("Score for the white wine :")
+    for m in white_models:
         print(m)    
