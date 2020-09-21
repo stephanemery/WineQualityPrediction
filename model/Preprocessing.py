@@ -11,7 +11,7 @@ def normalize(x, scalerType):
     # Normalize data
     for i in range(x.shape[1]):
         # Select the column
-        col = x.iloc[:, i].to_numpy()
+        col = x.to_numpy()[:, i]
         # Normalize the column
         scaler = scalerType()        
         result[:, i] = scaler.fit_transform(col.reshape(-1,1)).squeeze()
