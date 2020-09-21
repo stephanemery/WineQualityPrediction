@@ -16,8 +16,7 @@ def normalize(x, scalerType):
         scaler = scalerType()        
         result[:, i] = scaler.fit_transform(col.reshape(-1,1)).squeeze()
 
-    return np.ones(x.shape)
-    #return pd.DataFrame(result, columns=x.columns, index=x.index)
+    return pd.DataFrame(result, columns=x.columns, index=x.index)
 
 def remove_outliers(x):
     result = x.copy()
