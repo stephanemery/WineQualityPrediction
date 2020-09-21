@@ -8,14 +8,7 @@ Algorithm to be used
   - Normalize data (Standard or MinMax scaler)
   
 2.Model
-- Regression
-  - SVM
-  - MNN
-  - MLR
-- Classification
-  - DT (ID3)
-  - Naïve Bayes
-  - RF (Random forest
-  - SVM Classification
-  - MNN (SGD/Adam)
+- Multi-Linear Regression
+- SVM Regressor
+- KNN Regressor
 

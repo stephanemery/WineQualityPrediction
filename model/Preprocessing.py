@@ -4,6 +4,7 @@ import numpy as np
 import os
 import requests
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from sklearn.decomposition import PCA
 
 def normalize(x, scalerType):
     result = np.zeros(x.shape)
@@ -31,11 +32,24 @@ def remove_outliers(x):
 
     return result
 
-def preprocess(norm, rm_outliers, scalerType):
+def features_selection(dataset, n_components=5):
+    # PCA
+    pca = PCA(n_components=n_components)
+    pca.fit(dataset)
+    # Project axes in reduced space
+    res = pca.transform(np.eye(dataset.shape[1]))
+    # Compute contribution
+    contrib = np.sum(abs(res), axis=1)
+    # Sort features
+    principal_features = np.argsort(contrib)
+
+    return principal_features[-1:-n_components-1:-1]
+
+def preprocess(norm, rm_outliers, scalerType='StandardScaler', max_comp=None):
     options = ''
 
     # Paths
-    path_dir = './data'#os.path.dirname(os.path.abspath(__file__))
+    path_dir = './data'
     path_red_wine = path_dir + '/winequality-red.csv'
     path_white_wine = path_dir + '/winequality-white.csv'
     
@@ -72,6 +86,17 @@ def preprocess(norm, rm_outliers, scalerType):
         white_wine = normalize(white_wine, scalerType)
         options += 'n_'
 
+    if max_comp is not None :
+        # Search for the X most contributing features
+        princ_comp_red = features_selection(red_wine.iloc[:,:-1], max_comp)
+        princ_comp_white = features_selection(white_wine.iloc[:,:-1], max_comp)
+        # Add quality column
+        princ_comp_red = np.append(princ_comp_red, -1)
+        princ_comp_white = np.append(princ_comp_white, -1)
+        # Keep X principal components
+        red_wine = red_wine.iloc[:, princ_comp_red]
+        white_wine = white_wine.iloc[:, princ_comp_white]
+
     # Save
     red_wine.to_csv(path_dir + '/preprocessed_'+options+'red.csv',index=False)
     white_wine.to_csv(path_dir + '/preprocessed_'+options+'white.csv',index=False)
@@ -92,4 +117,3 @@ if __name__ == "__main__":
     print('Preprocessing...')
 
     preprocess(args.normalize, args.remove_outliers, args.scaler)
-    
