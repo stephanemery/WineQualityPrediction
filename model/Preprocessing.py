@@ -5,18 +5,24 @@ import os
 import requests
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.decomposition import PCA
+'''
 
+'''
 def normalize(x, scalerType):
-    result = np.zeros(x.shape)
-    # Normalize data
-    for i in range(x.shape[1]):
-        # Select the column
-        col = x.to_numpy()[:, i]
-        # Normalize the column
-        scaler = scalerType()        
-        result[:, i] = scaler.fit_transform(col.reshape(-1,1)).squeeze()
-
-    return pd.DataFrame(result, columns=x.columns, index=x.index)
+    if len(x)>1 :
+        result = np.zeros(x.shape)
+        # Normalize data
+        for i in range(x.shape[1]):
+            # Select the column
+            col = x.to_numpy()[:, i]
+            # Normalize the column
+            scaler = scalerType()        
+            result[:, i] = scaler.fit_transform(col.reshape(-1,1)).squeeze()
+        return pd.DataFrame(result, columns=x.columns, index=x.index)
+    else:
+        print('The dimension does not match the expected ones')
+        raise
+    
 
 def remove_outliers(x):
     result = x.copy()
