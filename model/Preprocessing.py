@@ -7,11 +7,28 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.decomposition import PCA
 
 """
-
+Preprocessing functions
 """
 
-
 def normalize(x, scalerType):
+    """
+    Nomalize the columns of the array passed
+
+    Parameters
+    ==========
+
+    x : pandas.DataFrame
+	The input data array (NxM).
+    scalerType : sklearn.base.BaseEstimator
+	Type of scaler to use (StandardScaler or MinMaxScaler).
+
+    Returns
+    =======
+   
+    : pandas.DataFrame
+        The array normalized.
+
+    """
     if len(x) > 1:
         result = np.zeros(x.shape)
         # Normalize data
@@ -28,6 +45,22 @@ def normalize(x, scalerType):
 
 
 def remove_outliers(x):
+    """
+    Remove outliers (data outside of [1%, 99%]).
+
+    Parameters
+    ==========
+
+    x : pandas.DataFrame
+	The input data array (NxM).
+
+    Returns
+    =======
+   
+    : pandas.DataFrame
+        The array without outliers.
+
+    """
     result = x.copy()
     # Remove outliners
     for i in range(result.shape[1]):
@@ -43,6 +76,24 @@ def remove_outliers(x):
 
 
 def features_selection(dataset, n_components=5):
+    """
+    Select the most important features of the data.
+
+    Parameters
+    ==========
+
+    dataset : pandas.DataFrame
+	The input data array (NxM).
+    n_components : int
+	The number of features to keep.
+
+    Returns
+    =======
+   
+    : pandas.DataFrame
+        A new array containing only the *n_components* most important features.
+
+    """
     # PCA
     pca = PCA(n_components=n_components)
     pca.fit(dataset)
@@ -56,7 +107,23 @@ def features_selection(dataset, n_components=5):
     return principal_features[-1 : -n_components - 1 : -1]
 
 
-def preprocess(norm, rm_outliers, scalerType="StandardScaler", max_comp=None):
+def preprocess(norm, rm_outliers, scalerType="StandardScaler", max_comp=None):    
+    """
+    Preprocess the data of the wine in the *data* folder.
+
+    Parameters
+    ==========
+
+    norm : boolean
+	Defined if the data have to be normalized.
+    rm_outliers : boolean
+	Defined if the outliers have to be removed.
+    scalerType : sklearn.base.BaseEstimator
+	Type of scaler to use (StandardScaler or MinMaxScaler).
+    n_components : int
+	The number of features to keep.
+
+    """
     options = ""
 
     # Paths

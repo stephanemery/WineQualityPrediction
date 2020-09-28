@@ -7,6 +7,10 @@ from model.SVM import SVM
 from sklearn.model_selection import train_test_split
 
 if __name__ == "__main__":
+    """
+    Preprocess the data and try diffent model of learning on it.
+    The function print the score of each model.
+    """
     # Parameters
     normalize = True
     remove_outliers = True

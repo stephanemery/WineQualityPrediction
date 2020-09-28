@@ -1,5 +1,8 @@
 from abc import ABC, abstractmethod
 
+"""
+Parent class of the models
+"""
 
 class Machine(ABC):
     def __init__(self, name):
@@ -24,13 +27,13 @@ class Machine(ABC):
     @abstractmethod
     def predict(self, X):
         """
-        Predict output from input values
+        Predict outputs from inputs data
         """
         pass
 
     def __str__(self):
         """
-        Display the machine's informations
+        Display the model's informations
         """
         txt = self.name
         if not self.trained:
