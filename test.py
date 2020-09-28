@@ -54,3 +54,6 @@ def test_insert_is_sorted(ls, v):
     ls.insert(binary_search(ls, v), v)
     assert is_sorted(ls)
 '''
+
+if __name__ == "__main__":
+    test_normalize()

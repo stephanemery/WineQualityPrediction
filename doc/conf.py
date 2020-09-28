@@ -27,8 +27,6 @@ author = "Stéphane Emery / Nassim Augsburger"
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-import sphinx_rtd_theme
-
 extensions = [
     "sphinx.ext.coverage",
     "sphinx.ext.ifconfig",
@@ -39,8 +37,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
-    "sphinx.ext.mathjax",
-    "sphinx_rtd_theme",
+    "sphinx.ext.mathjax"
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -61,23 +58,12 @@ master_doc = 'index'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#
 import sphinx_theme
-
 html_theme = "stanford_theme"
-
-# Add any paths that contain custom themes here, relative to this directory.
 html_theme_path = [sphinx_theme.get_html_theme_path('stanford-theme')]
 
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ["_static"]
-
-intersphinx_mapping = dict(
-    python=('https://docs.python.org/3', None),
-    numpy=("https://numpy.org/doc/stable/", None),
-    scipy=("https://docs.scipy.org/doc/scipy/reference", None),
-)
-
+#html_static_path = ["_static"]

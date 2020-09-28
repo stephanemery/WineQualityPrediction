@@ -6,11 +6,12 @@
     :target: https://github.com/stephanemery/WineQualityPrediction/index.html
 .. image:: https://img.shields.io/badge/github-project-0000c0.svg
     :target: https://github.com/stephanemery/WineQualityPrediction
-.. image:: https://img.shields.io/github/contributors/badges/shields
+.. image:: https://img.shields.io/github/contributors/stephanemery/WineQualityPrediction.svg
     :target: https://github.com/stephanemery/WineQualityPrediction/graphs/contributors
 .. image:: https://img.shields.io/badge/License-MIT-yellow.svg
     :target: https://github.com/stephanemery/WineQualityPrediction/blob/master/LICENSE
-
+.. image:: https://img.shields.io/github/issues/stephanemery/WineQualityPrediction
+    :target: https://github.com/stephanemery/WineQualityPrediction/issues
   
 Wine quality prediction from its physicochemical properties
 ===========================================================
