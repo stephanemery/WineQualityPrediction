@@ -21,7 +21,6 @@ def test_normalize_1(x):
             result = normalize(pd.DataFrame(x), StandardScaler)   
             np.testing.assert_array_almost_equal(expected, result.to_numpy().ravel(), decimal=6)
 
-
 Values = st.integers()
 list1 = st.lists(Values)
 
@@ -70,9 +69,12 @@ def test_preprocess_2(norm, rm_outliers, scalerType='StandardScaler', max_comp=N
 '''
 def test_features_selection_1():
     #TODO create random dataset with random dimensions
-    randomDF=pd.DataFrame(np.random.rand(100, 20) , columns=list('XYZ'))
-    fs=features_selection(dataset, n_components=5)
+    randomDF=pd.DataFrame(np.random.rand(100, 3) , columns=list('XYZ'))
+    n_components=3 # fail with n_components=5
+    fs=features_selection(randomDF, n_components)
     assert (len(fs)==n_components)
+test_features_selection_1()
+
 '''
 #TODO create random dataset with random dimensions
 @given(dataset=dataset,n_components=integer)
