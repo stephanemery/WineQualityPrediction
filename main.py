@@ -5,8 +5,7 @@ from model.MultiLinearRegression import MultiLinearRegression
 from model.KNN import KNN
 from model.SVM import SVM
 from sklearn.model_selection import train_test_split
-
-if __name__ == '__main__':
+def main(shuffle=False):
     # Parameters
     normalize = True
     remove_outliers = True
@@ -15,7 +14,8 @@ if __name__ == '__main__':
     max_components = None
 
     # Preprocess
-    preprocess(normalize, remove_outliers, scalerType, max_components)
+
+    preprocess(normalize, remove_outliers, scalerType, max_components)#,path_red_wine,path_white_wine0000000000000)
 
     # Load data
     options = '_'
@@ -28,8 +28,8 @@ if __name__ == '__main__':
     white_wine = pd.read_csv('./data/preprocessed'+options+'white.csv')
         
     # Split into train/test dataset
-    red_train_set, red_test_set = train_test_split(red_wine, test_size=test_size, shuffle=True)
-    white_train_set, white_test_set = train_test_split(white_wine, test_size=test_size, shuffle=True)
+    red_train_set, red_test_set = train_test_split(red_wine, test_size=test_size, shuffle=shuffle)
+    white_train_set, white_test_set = train_test_split(white_wine, test_size=test_size, shuffle=shuffle)
 
     # Models
     red_models = []
@@ -71,3 +71,6 @@ if __name__ == '__main__':
     print("Score for the white wine :")
     for m in white_models:
         print(m)    
+if __name__ == '__main__':
+    main(shuffle=True)
+    main(shuffle=False)

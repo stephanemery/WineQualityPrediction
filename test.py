@@ -97,6 +97,7 @@ def test_main():
 '''
 function to test if the test works
 '''
+'''
 print('test_normalize_1')
 test_normalize_1()
 print('test_remove_outliers_1')
@@ -113,5 +114,6 @@ test_preprocess_1()
 #test_preprocess_2()
 #print('test_parse_arguments')
 #test_parse_arguments()
+'''
 print('test_main')
 test_main()

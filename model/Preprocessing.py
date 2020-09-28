@@ -53,13 +53,17 @@ def features_selection(dataset, n_components=5):
 
         return principal_features[-1:-n_components-1:-1]
 
-def preprocess(norm, rm_outliers, scalerType='StandardScaler', max_comp=None):
+def preprocess(norm, rm_outliers, scalerType='StandardScaler', max_comp=None,file_name_red_wine,file_name_white_wine):
     options = ''
 
     # Paths
     path_dir = './data'
+    file_name_red_wine
     path_red_wine = path_dir + '/winequality-red.csv'
     path_white_wine = path_dir + '/winequality-white.csv'
+
+    # path_red_wine = path_dir + file_name_red_wine
+    # path_white_wine = path_dir + file_name_white_wine
     
     # If data files don't exist, download them
     # Red wine data
@@ -124,4 +128,4 @@ if __name__ == "__main__":
     
     print('Preprocessing...')
 
-    preprocess(args.normalize, args.remove_outliers, args.scaler)
+    preprocess(args.normalize, args.remove_outliers, args.scaler,'/winequality-red.csv','/winequality-white.csv')
