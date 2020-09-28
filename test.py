@@ -27,7 +27,6 @@ def test_normalize_1(x):
 
 def test_remove_outliers_1():
     randomDF=pd.DataFrame(np.random.rand(100, 3) , columns=list('XYZ'))
-
     to_compare= remove_outliers(randomDF)   
     assert(randomDF.shape[0]*randomDF.shape[1]>to_compare.shape[0] * to_compare.shape[1])  
     
@@ -70,34 +69,39 @@ def test_features_selection_1():
     n_components=3 # fail with n_components=5
     fs=features_selection(randomDF, n_components)
     assert (len(fs)==n_components)
-
 '''
-#TODO create random dataset with random dimensions
-@given(dataset=dataset,n_components=integer)
+from hypothesis.extra.pandas import column, data_frames
+#create a random dataset with random dimensions
+dataset=data_frames([column('A', dtype=int), column('B', dtype=float)]).example()
+@given(dataset=dataset,n_components=Values)
 def test_features_selection_2(dataset, n_components):
+    
     randomDF=pd.DataFrame(np.random.rand(100, 20) , columns=list('XYZ'))
-    fs=features_selection(dataset, n_components=5)
+    fs=features_selection(randomDF, n_components=5)
     assert (len(fs)==n_components)
-'''
+
 #TODO add  input from terminal to this test but how ???? 
 def test_parse_arguments():
     parse_arguments()
     assert (True)
-
+'''
 def test_machine_1():
+    #list
     mach1=Machine('KNN Regressor')
     mach1.train()
     mach1.test()
+    MultiLinearRegression(mach1)
 '''
-Integration test of the main function which needs to run without errors
+Integration test of the main function which needs to run all the functions
+'''
 '''
 def test_main():
     main()
-
+'''
 '''
 function to test if the test works
 '''
-'''
+
 print('test_normalize_1')
 test_normalize_1()
 print('test_remove_outliers_1')
@@ -114,6 +118,8 @@ test_preprocess_1()
 #test_preprocess_2()
 #print('test_parse_arguments')
 #test_parse_arguments()
+
 '''
 print('test_main')
 test_main()
+'''
