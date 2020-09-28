@@ -39,17 +39,19 @@ def remove_outliers(x):
     return result
 
 def features_selection(dataset, n_components=5):
-    # PCA
-    pca = PCA(n_components=n_components)
-    pca.fit(dataset)
-    # Project axes in reduced space
-    res = pca.transform(np.eye(dataset.shape[1]))
-    # Compute contribution
-    contrib = np.sum(abs(res), axis=1)
-    # Sort features
-    principal_features = np.argsort(contrib)
+    n_components = n_components//1
+    if n_components>1 and dataset.:
+        # PCA
+        pca = PCA(n_components=n_components)
+        pca.fit(dataset)
+        # Project axes in reduced space
+        res = pca.transform(np.eye(dataset.shape[1]))
+        # Compute contribution
+        contrib = np.sum(abs(res), axis=1)
+        # Sort features
+        principal_features = np.argsort(contrib)
 
-    return principal_features[-1:-n_components-1:-1]
+        return principal_features[-1:-n_components-1:-1]
 
 def preprocess(norm, rm_outliers, scalerType='StandardScaler', max_comp=None):
     options = ''
