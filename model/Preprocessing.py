@@ -40,7 +40,7 @@ def remove_outliers(x):
 
 def features_selection(dataset, n_components=5):
     n_components = n_components//1
-    if n_components>1 and dataset.:
+    if n_components>1: #and the shape is 2 dimensional and greater than (0,x) (x,0)
         # PCA
         pca = PCA(n_components=n_components)
         pca.fit(dataset)
