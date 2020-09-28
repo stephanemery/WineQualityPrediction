@@ -1,2 +1,0 @@
-TowardsDataScience, Gulden Turgay, 2020, Comparing Classification Models for Wine Quality Prediction :
-    https://towardsdatascience.com/comparing-classification-models-for-wine-quality-prediction-6c5f26669a4f
