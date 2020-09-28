@@ -1,7 +1,6 @@
-.. Wine quality prediction documentation master file, created by
-   sphinx-quickstart on Mon Sep 28 09:12:41 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. vim: set fileencoding=utf-8 :
+
+.. _wine_quality:
 
 Welcome to Wine quality prediction's documentation!
 ===================================================
@@ -15,10 +14,12 @@ Documentation
 
 .. toctree::
 
-    installation
-    guide
-    api
-
+   installation
+   guide
+   troubleshooting
+   api
+	
+	
 Indices and tables
 ==================
 

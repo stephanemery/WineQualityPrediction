@@ -1,6 +1,6 @@
 .. vim: set fileencoding=utf-8 :
 
-.. _guide:
+.. _wine_quality_guide:
 
 
 Guide
