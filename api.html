@@ -86,11 +86,11 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide.html">Guide</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Python API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#knn">KNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-model.KNN">KNN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-model.Machine">Machine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#multi-linear-regression">Multi-Linear regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#preprocessing">Preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#svm">SVM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-model.MultiLinearRegression">Multi-Linear regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-model.Preprocessing">Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-model.SVM">SVM</a></li>
 </ul>
 </li>
 </ul>
@@ -158,8 +158,59 @@
             
   <div class="section" id="python-api">
 <span id="api"></span><h1>Python API<a class="headerlink" href="#python-api" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="knn">
-<h2>KNN<a class="headerlink" href="#knn" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-model.KNN">
+<span id="knn"></span><h2>KNN<a class="headerlink" href="#module-model.KNN" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="model.KNN.KNN">
+<em class="property">class </em><code class="sig-prename descclassname">model.KNN.</code><code class="sig-name descname">KNN</code><a class="reference internal" href="_modules/model/KNN.html#KNN"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.KNN.KNN" title="Permalink to this definition">¶</a></dt>
+<dd><p>K-Nearest Neighbors model</p>
+<dl class="py method">
+<dt id="model.KNN.KNN.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/KNN.html#KNN.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.KNN.KNN.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the output from the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>numpy.ndarray</em>) – The data array (NxM).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The result of the prediction</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="model.KNN.KNN.test">
+<code class="sig-name descname">test</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/KNN.html#KNN.test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.KNN.KNN.test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>numpy.ndarray</em>) – The testing data array (NxM).</p></li>
+<li><p><strong>y</strong> (<em>numpy.ndarray</em>) – The expected output (Nx1)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="model.KNN.KNN.train">
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/KNN.html#KNN.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.KNN.KNN.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>numpy.ndarray</em>) – The training data array (NxM).</p></li>
+<li><p><strong>y</strong> (<em>numpy.ndarray</em>) – The expected output (Nx1)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-model.Machine">
 <span id="machine"></span><h2>Machine<a class="headerlink" href="#module-model.Machine" title="Permalink to this headline">¶</a></h2>
@@ -187,14 +238,197 @@
 </dd></dl>
 
 </div>
-<div class="section" id="multi-linear-regression">
-<h2>Multi-Linear regression<a class="headerlink" href="#multi-linear-regression" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-model.MultiLinearRegression">
+<span id="multi-linear-regression"></span><h2>Multi-Linear regression<a class="headerlink" href="#module-model.MultiLinearRegression" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="model.MultiLinearRegression.MultiLinearRegression">
+<em class="property">class </em><code class="sig-prename descclassname">model.MultiLinearRegression.</code><code class="sig-name descname">MultiLinearRegression</code><a class="reference internal" href="_modules/model/MultiLinearRegression.html#MultiLinearRegression"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.MultiLinearRegression.MultiLinearRegression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multi-Linear Regression model</p>
+<dl class="py method">
+<dt id="model.MultiLinearRegression.MultiLinearRegression.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/MultiLinearRegression.html#MultiLinearRegression.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.MultiLinearRegression.MultiLinearRegression.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the output from the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>numpy.ndarray</em>) – The data array (NxM).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The result of the prediction</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="model.MultiLinearRegression.MultiLinearRegression.test">
+<code class="sig-name descname">test</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/MultiLinearRegression.html#MultiLinearRegression.test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.MultiLinearRegression.MultiLinearRegression.test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>numpy.ndarray</em>) – The testing data array (NxM).</p></li>
+<li><p><strong>y</strong> (<em>numpy.ndarray</em>) – The expected output (Nx1)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="model.MultiLinearRegression.MultiLinearRegression.train">
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/MultiLinearRegression.html#MultiLinearRegression.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.MultiLinearRegression.MultiLinearRegression.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>numpy.ndarray</em>) – The training data array (NxM).</p></li>
+<li><p><strong>y</strong> (<em>numpy.ndarray</em>) – The expected output (Nx1)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="preprocessing">
-<h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-model.Preprocessing">
+<span id="preprocessing"></span><h2>Preprocessing<a class="headerlink" href="#module-model.Preprocessing" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="model.Preprocessing.features_selection">
+<code class="sig-prename descclassname">model.Preprocessing.</code><code class="sig-name descname">features_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">n_components</span><span class="o">=</span><span class="default_value">5</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Preprocessing.html#features_selection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Preprocessing.features_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select the most important features of the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>pandas.DataFrame</em>) – The input data array (NxM).</p></li>
+<li><p><strong>n_components</strong> (<em>int</em>) – The number of features to keep.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A new array containing only the <em>n_components</em> most important features.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="model.Preprocessing.normalize">
+<code class="sig-prename descclassname">model.Preprocessing.</code><code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">scalerType</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Preprocessing.html#normalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Preprocessing.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Nomalize the columns of the array passed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>pandas.DataFrame</em>) – The input data array (NxM).</p></li>
+<li><p><strong>scalerType</strong> (<em>sklearn.base.BaseEstimator</em>) – Type of scaler to use (StandardScaler or MinMaxScaler).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The array normalized.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="model.Preprocessing.preprocess">
+<code class="sig-prename descclassname">model.Preprocessing.</code><code class="sig-name descname">preprocess</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">norm</span></em>, <em class="sig-param"><span class="n">rm_outliers</span></em>, <em class="sig-param"><span class="n">scalerType</span><span class="o">=</span><span class="default_value">'StandardScaler'</span></em>, <em class="sig-param"><span class="n">max_comp</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Preprocessing.html#preprocess"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Preprocessing.preprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preprocess the data of the wine in the <em>data</em> folder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>norm</strong> (<em>boolean</em>) – Defined if the data have to be normalized.</p></li>
+<li><p><strong>rm_outliers</strong> (<em>boolean</em>) – Defined if the outliers have to be removed.</p></li>
+<li><p><strong>scalerType</strong> (<em>sklearn.base.BaseEstimator</em>) – Type of scaler to use (StandardScaler or MinMaxScaler).</p></li>
+<li><p><strong>n_components</strong> (<em>int</em>) – The number of features to keep.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="model.Preprocessing.remove_outliers">
+<code class="sig-prename descclassname">model.Preprocessing.</code><code class="sig-name descname">remove_outliers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Preprocessing.html#remove_outliers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Preprocessing.remove_outliers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove outliers (data outside of [1%, 99%]).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>pandas.DataFrame</em>) – The input data array (NxM).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The array without outliers.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
-<div class="section" id="svm">
-<h2>SVM<a class="headerlink" href="#svm" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-model.SVM">
+<span id="svm"></span><h2>SVM<a class="headerlink" href="#module-model.SVM" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="model.SVM.SVM">
+<em class="property">class </em><code class="sig-prename descclassname">model.SVM.</code><code class="sig-name descname">SVM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">epsilon</span></em>, <em class="sig-param"><span class="n">C</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/SVM.html#SVM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.SVM.SVM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Support Vector Machine model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>epsilon</strong> (<em>float</em>) – Epsilon parameter in the epsilon-insensitive loss function. Note that the value of this parameter depends on the scale of the target variable y. If unsure, set <em>epsilon=0</em>.</p></li>
+<li><p><strong>C</strong> (<em>float</em>) – Regularization parameter. The strength of the regularization is inversely proportional to C. Must be strictly positive.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="model.SVM.SVM.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/SVM.html#SVM.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.SVM.SVM.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the output from the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>numpy.ndarray</em>) – The data array (NxM).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The result of the prediction</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="model.SVM.SVM.test">
+<code class="sig-name descname">test</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/SVM.html#SVM.test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.SVM.SVM.test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>numpy.ndarray</em>) – The testing data array (NxM).</p></li>
+<li><p><strong>y</strong> (<em>numpy.ndarray</em>) – The expected output (Nx1)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="model.SVM.SVM.train">
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/SVM.html#SVM.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.SVM.SVM.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>numpy.ndarray</em>) – The training data array (NxM).</p></li>
+<li><p><strong>y</strong> (<em>numpy.ndarray</em>) – The expected output (Nx1)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 
