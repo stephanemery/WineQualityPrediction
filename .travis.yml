@@ -14,13 +14,13 @@ install:
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
   - conda info -a
-  - conda create -q -n project python=$TRAVIS_PYTHON_VERSION numpy scipy coverage coveralls hypothesis scikit-learn pandas
+  - conda create -q -n project python=$TRAVIS_PYTHON_VERSION numpy scipy coverage coveralls nose scikit-learn pandas
   - pip install sphinx sphinx_theme scikit-learn pandas
   - conda activate project
 
 script:
   # Run phase of our CI pipeline
-  - python test.py #runs test
+  - nosetests -sv --with-coverage --cover-package=. test.py
   
   # Build docs
   - sphinx-build doc sphinx

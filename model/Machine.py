@@ -39,6 +39,6 @@ class Machine(ABC):
         if not self.trained:
             txt += "\r\n\tAlgorithm not trained !"
         else:
-            txt += "\r\n\tScore : " + str(self.score)
+            txt += "\r\n\tScore : " + "{:.6f}".format(self.score)
 
         return txt
