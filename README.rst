@@ -3,7 +3,7 @@
 .. image:: https://coveralls.io/repos/github/stephanemery/WineQualityPrediction/badge.svg
     :target: https://coveralls.io/github/stephanemery/WineQualityPrediction
 .. image:: https://img.shields.io/badge/docs-latest-orange.svg
-    :target: https://github.com/stephanemery/WineQualityPrediction/index.html
+    :target: https://stephanemery.github.io/WineQualityPrediction/
 .. image:: https://img.shields.io/badge/github-project-0000c0.svg
     :target: https://github.com/stephanemery/WineQualityPrediction
 .. image:: https://img.shields.io/github/contributors/stephanemery/WineQualityPrediction.svg
