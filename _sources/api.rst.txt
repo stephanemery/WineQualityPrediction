@@ -1,6 +1,6 @@
 .. vim: set fileencoding=utf-8 :
 
-.. _api:
+.. _wine_quality_api:
 
 
 Python API
@@ -10,29 +10,29 @@ KNN
 ---
 
 .. automodule:: model.KNN
-    :members:
+   :members:
 
 Machine
 -------
 
 .. automodule:: model.Machine
-    :members:
+   :members:
 	
 Multi-Linear regression
 -----------------------
 
 .. automodule:: model.MultiLinearRegression
-    :members:
+   :members:
 
 Preprocessing
 -------------
 
 .. automodule:: model.Preprocessing
-    :members:
+   :members:
 
 
 SVM
 ---
 
 .. automodule:: model.SVM
-    :members:
+   :members:

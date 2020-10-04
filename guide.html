@@ -36,7 +36,7 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Wine quality prediction  documentation" href="index.html"/>
-        <link rel="next" title="Python API" href="api.html"/>
+        <link rel="next" title="Troubleshooting" href="troubleshooting.html"/>
         <link rel="prev" title="Installation" href="installation.html"/> 
 
   
@@ -86,6 +86,7 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Python API</a></li>
 </ul>
 
@@ -151,7 +152,48 @@
            <div itemprop="articleBody">
             
   <div class="section" id="guide">
-<span id="id1"></span><h1>Guide<a class="headerlink" href="#guide" title="Permalink to this headline">¶</a></h1>
+<span id="wine-quality-guide"></span><h1>Guide<a class="headerlink" href="#guide" title="Permalink to this headline">¶</a></h1>
+<p>This guide explains how to use this package and obtain results published in our paper. Results can be re-generated automatically by executing the following command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>WineQualityPrediction<span class="o">)</span> python main.py -ns
+</pre></div>
+</div>
+<p>By executing this command, you should get these results :</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">main</span>
+<span class="n">main</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Preprocessing done !
+Score for the red wine :
+Multi-Linear Regression
+    Score : 0.2527510101619952
+KNN Regressor
+    Score : 0.17836835834516326
+SVM Regressor
+    Score : 0.2479919930723996
+
+Score for the white wine :
+Multi-Linear Regression
+    Score : 0.17457961500511143
+KNN Regressor
+    Score : 0.19431050969654862
+SVM Regressor
+    Score : 0.31709267173094546
+</pre></div>
+</div>
+<p>You can run main.py with differents options to see how the results change :</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>usage: main.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--scaler SCALER<span class="o">]</span> <span class="o">[</span>-nn<span class="o">]</span> <span class="o">[</span>-ns<span class="o">]</span> <span class="o">[</span>-nro<span class="o">]</span>
+
+Predict wine quality from its physicochemical properties.
+
+optional arguments:
+  -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  --scaler SCALER       The name of the scaler : <span class="s2">&quot;StandardScaler&quot;</span>, <span class="s2">&quot;MinMaxScaler&quot;</span>
+  -nn, --not_normalize  Do not normalize data
+  -ns, --not_shuffle    Do not shuffle data
+  -nro, --not_remove_outliers
+                        Do not remove outliers
+</pre></div>
+</div>
 </div>
 
 
@@ -161,7 +203,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="api.html" class="btn btn-neutral float-right" title="Python API" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Troubleshooting" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="installation.html" class="btn btn-neutral" title="Installation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
