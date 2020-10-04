@@ -40,8 +40,7 @@ def normalize(x, scalerType):
             result[:, i] = scaler.fit_transform(col.reshape(-1, 1)).squeeze()
         return pd.DataFrame(result, columns=x.columns, index=x.index)
     else:
-        print("The dimension does not match the expected ones")
-        raise
+        raise Exception("The dimension does not match the expected ones")
 
 
 def remove_outliers(x):
@@ -138,14 +137,18 @@ def preprocess(norm, rm_outliers, scalerType="StandardScaler", max_comp=None):
         my_file = requests.get(
             "https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv"
         )
-        open(path_red_wine, "wb").write(my_file.content)
+        f=open(path_red_wine, "wb")
+        f.write(my_file.content)
+        f.close()
     # White wine data
     if not os.path.isfile(path_white_wine):
         print("Downloading white wine data...")
         my_file = requests.get(
             "https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv"
         )
-        open(path_white_wine, "wb").write(my_file.content)
+        f=open(path_white_wine, "wb")
+        f.write(my_file.content)
+        f.close()
 
     # Load data
     red_wine = pd.read_csv(path_red_wine, sep=";")
