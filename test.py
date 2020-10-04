@@ -80,9 +80,6 @@ def test_remove_outliers_3(x):
     )
 
 
-test_remove_outliers_3()
-
-
 # create a random csv dataset with only ones with different dimensions
 Values = st.integers()
 
@@ -106,8 +103,6 @@ def test_remove_outliers_3(x):
     )
 
 
-test_remove_outliers_3()
-
 """
 # Parameters
 normalize = True
@@ -117,7 +112,7 @@ test_size = 0.3
 max_components = None
 """
 # This is a sunny day test
-# TODO add test_size as parameter of the function and the path directories in preprocessing
+# (Done but stash) add test_size as parameter of the function and the path directories in preprocessing
 def test_preprocess_1():
     max_comp = None
     test_size = 0.3
@@ -129,7 +124,7 @@ def test_preprocess_1():
 
 """
 # This is a sunny day test
-#TODO Randomize input and use test files
+# (Done but changed the input function) Randomize input and use test files
 def test_preprocess_2(norm, rm_outliers, scalerType='StandardScaler', max_comp=None):
     max_comp=None
     test_size = 0.3
@@ -149,28 +144,11 @@ def test_features_selection_1():
 
 
 """
-from hypothesis.extra.pandas import column, data_frames
-#create a random dataset with random dimensions
-dataset=data_frames([column('A', dtype=int), column('B', dtype=float)]).example()
-@given(dataset=dataset,n_components=Values)
-def test_features_selection_2(dataset, n_components):
-    
-    randomDF=pd.DataFrame(np.random.rand(100, 20) , columns=list('XYZ'))
-    fs=features_selection(randomDF, n_components=5)
-    assert (len(fs)==n_components)
-
 #TODO add  input from terminal to this test but how ???? 
 def test_parse_arguments():
     parse_arguments()
     assert (True)
 """
-
-
-def test_machine_1():
-    mach1 = Machine("KNN Regressor")
-    mach1.train()
-    mach1.test()
-    MultiLinearRegression(mach1)
 
 
 """
@@ -182,9 +160,9 @@ def test_main():
 """
 
 """
-function to test if the test works as expected
+function to test if the test have the expected behaviour
 """
-
+"""
 print("test_normalize_1")
 test_normalize_1()
 print("test_remove_outliers_1")
@@ -202,7 +180,4 @@ test_preprocess_1()
 # print('test_parse_arguments')
 # test_parse_arguments()
 
-"""
-print('test_main')
-test_main()
 """
