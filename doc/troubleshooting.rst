@@ -11,10 +11,10 @@ You can run unit tests prepared like this (install hypothesis_ first):
 
 .. code-block:: shell
 
-  # use your package manager to install the package "hypothesis"
+  # use your package manager to install the package "nose"
   # here, I examplify with "miniconda":
-  (WineQualityPrediction) $ conda install hypothesis
-  (WineQualityPrediction) $ python test.py
+  (WineQualityPrediction) $ conda install nose
+  (WineQualityPrediction) $ nosetests test.py
   ....
   ----------------------------------------------------------------------
   Ran 1 tests in 0.180 s
