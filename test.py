@@ -2,7 +2,12 @@ import numpy as np
 import pandas as pd
 import nose.tools as nt
 import os
+import sys
+import main
+
 from os import path
+from contextlib import contextmanager
+from io import StringIO
 from model.MultiLinearRegression import *
 from model.Preprocessing import *
 from model.KNN import *
@@ -227,7 +232,7 @@ def test_SVR_1():
 
 def test_SVR_2():
     '''
-    Test MultiLinearRegression
+    Test Support Vector Regression
     Test test without training
     '''
     x = np.array([[7,4],[7,7], [7,8], [8,10], [11,6], [3,4],[1,4],[2,2], [1,3], [5,2], [3,3]])
@@ -239,6 +244,41 @@ def test_SVR_2():
     assert svr.score == 0        
     assert svr.predict(x) is None
     
+@contextmanager
+def captured_output():
+    new_out, new_err = StringIO(), StringIO()
+    old_out, old_err = sys.stdout, sys.stderr
+    try:
+        sys.stdout, sys.stderr = new_out, new_err
+        yield sys.stdout, sys.stderr
+    finally:
+        sys.stdout, sys.stderr = old_out, old_err
+
+def test_main_1():
+    '''
+    Test main file
+    '''
+    with captured_output() as (out, err):
+        main.main(False)
+        
+    output = out.getvalue().strip()
+
+    msg = 'Preprocessing done !\
+\nScore for the red wine :\
+\nMulti-Linear Regression\
+\r\n\tScore : 0.252751\
+\nKNN Regressor\
+\r\n\tScore : 0.178368\
+\nSVM Regressor\
+\r\n\tScore : 0.247992\
+\n\
+\nScore for the white wine :\
+\nMulti-Linear Regression\
+\r\n\tScore : 0.174580\
+\nKNN Regressor\
+\r\n\tScore : 0.194311\
+\nSVM Regressor\
+\r\n\tScore : 0.317093'
+        
+    nt.assert_equal(output, msg)
     
-#if __name__ == "__main__":
-#   unittest.main()

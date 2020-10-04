@@ -17,7 +17,7 @@ You can run unit tests prepared like this (install hypothesis_ first):
   (WineQualityPrediction) $ nosetests test.py
   ....
   ----------------------------------------------------------------------
-  Ran 1 tests in 0.180 s
+  Ran 18 tests in 5.897s
 
   OK
 
