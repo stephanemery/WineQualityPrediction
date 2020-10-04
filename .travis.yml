@@ -20,7 +20,7 @@ install:
 
 script:
   # Run phase of our CI pipeline
-  - python test.py #runs test
+  - nosetests -sv --with-coverage --cover-package=. test.py
   
   # Build docs
   - sphinx-build doc sphinx
