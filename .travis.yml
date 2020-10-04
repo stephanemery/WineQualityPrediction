@@ -14,10 +14,25 @@ install:
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
   - conda info -a
-  - conda create -q -n project python=$TRAVIS_PYTHON_VERSION numpy scikit-learn pandas scipy nose coverage coveralls hypothesis
+  - conda create -q -n project python=$TRAVIS_PYTHON_VERSION numpy scipy coverage coveralls hypothesis scikit-learn pandas
+  - pip install sphinx sphinx_theme scikit-learn pandas
   - conda activate project
 
 script:
   # Run phase of our CI pipeline
-  - nosetests -sv --with-coverage --cover-package=. test.py #runs test
+  - python test.py #runs test
+  
+  # Build docs
+  - sphinx-build doc sphinx
+  - touch sphinx/.nojekyll
   - coveralls #uploads coverage report to coveralls.io
+  
+deploy:
+  - provider: pages:git
+    verbose: true
+    edge: true
+    token: $GITHUB_TOKEN
+    local_dir: ./sphinx/
+    on:
+      branch: master
+      condition: $TRAVIS_PYTHON_VERSION=3.7 

@@ -1,35 +1,42 @@
 import numpy as np
 import pandas as pd
-
+import unittest
 from model.MultiLinearRegression import *
 from model.Preprocessing import *
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 from hypothesis import given, strategies as st
 
-Values = st.integers()
-list1 = st.lists(Values)
 
-@given(x=list1)
-def test_normalize(x):
-    x = np.array(x)
-    if len(x)>1 :
-        mean = np.mean(x, axis=0)
-        std = np.std  (x, axis=0)
-        if(std!=0):
-            expected =    (x-mean)/std
-            result = normalize(pd.DataFrame(x), StandardScaler)   
-            np.testing.assert_array_almost_equal(expected, result.to_numpy().ravel(), decimal=6)
+class Tests(unittest.TestCase):
+    Values = st.integers()
+    list1 = st.lists(Values)
+
+    @given(x=list1)
+    def test_normalize(self, x):
+        x = np.array(x)
+        if len(x) > 1:
+            mean = np.mean(x, axis=0)
+            std = np.std(x, axis=0)
+            if std != 0:
+                expected = (x - mean) / std
+                result = normalize(pd.DataFrame(x), StandardScaler)
+                np.testing.assert_array_almost_equal(
+                    expected, result.to_numpy().ravel(), decimal=6
+                )
 
 
-Values = st.integers()
-list1 = st.lists(Values)  
-@given(x=list1)
-def remove_outliers(x):
-    x = np.array(x)
+    Values = st.integers()
+    list1 = st.lists(Values)
 
-    assert()
- 
+
+    @given(x=list1)
+    def remove_outliers(self, x):
+        x = np.array(x)
+
+        assert ()
+
+
 '''
 def test_preprocess(norm, rm_outliers, scalerType='StandardScaler', max_comp=None):
     assert()
@@ -48,3 +55,6 @@ def test_insert_is_sorted(ls, v):
     ls.insert(binary_search(ls, v), v)
     assert is_sorted(ls)
 '''
+
+if __name__ == "__main__":
+    unittest.main()

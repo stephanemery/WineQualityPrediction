@@ -1,5 +1,9 @@
 from abc import ABC, abstractmethod
 
+"""
+Parent class of the models
+"""
+
 class Machine(ABC):
     def __init__(self, name):
         self.name = name
@@ -9,32 +13,32 @@ class Machine(ABC):
     @abstractmethod
     def train(self, X, y):
         """
-            Train the machine
+        Train the machine
         """
         pass
 
     @abstractmethod
     def test(self, X, y):
         """
-            Test the machine
+        Test the machine
         """
         pass
 
     @abstractmethod
     def predict(self, X):
         """
-            Predict output from input values
+        Predict outputs from inputs data
         """
         pass
 
     def __str__(self):
         """
-            Display the machine's informations
+        Display the model's informations
         """
         txt = self.name
-        if not self.trained :
-            txt += '\r\n\tAlgorithm not trained !'
-        else :
-            txt += '\r\n\tScore : ' + str(self.score)
+        if not self.trained:
+            txt += "\r\n\tAlgorithm not trained !"
+        else:
+            txt += "\r\n\tScore : " + str(self.score)
 
         return txt
