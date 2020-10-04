@@ -1,5 +1,5 @@
 from .Machine import Machine
-from sklearn.svm import LinearSVR
+from sklearn.svm import SVR
 
 
 class SVM(Machine):
@@ -18,7 +18,7 @@ class SVM(Machine):
 
     def __init__(self, epsilon, C):
         super().__init__("SVM Regressor")
-        self.reg = LinearSVR(epsilon=epsilon, C=C)
+        self.reg = SVR(epsilon=epsilon, C=C)
 
     def train(self, X, y):
         """
