@@ -2,7 +2,7 @@ import argparse
 import pandas as pd
 import numpy as np
 import os
-import requests
+import ntpath
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.decomposition import PCA
 
@@ -106,7 +106,7 @@ def features_selection(dataset, n_components=5):
     return principal_features[-1 : -n_components - 1 : -1]
 
 
-def preprocess(norm, rm_outliers, scalerType="StandardScaler", max_comp=None):    
+def preprocess(filepath, norm, rm_outliers, scalerType="StandardScaler", max_comp=None):    
     """
     Preprocess the data of the wine in the *data* folder.
 
@@ -126,87 +126,35 @@ def preprocess(norm, rm_outliers, scalerType="StandardScaler", max_comp=None):
     options = ""
 
     # Paths
-    path_dir = "./data"
-    path_red_wine = path_dir + "/winequality-red.csv"
-    path_white_wine = path_dir + "/winequality-white.csv"
-
-    # If data files don't exist, download them
-    # Red wine data
-    if not os.path.isfile(path_red_wine):
-        print("Downloading red wine data...")
-        my_file = requests.get(
-            "https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv"
-        )
-        f=open(path_red_wine, "wb")
-        f.write(my_file.content)
-        f.close()
-    # White wine data
-    if not os.path.isfile(path_white_wine):
-        print("Downloading white wine data...")
-        my_file = requests.get(
-            "https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv"
-        )
-        f=open(path_white_wine, "wb")
-        f.write(my_file.content)
-        f.close()
+    path_dir = ntpath.dirname(filepath)
+    filename = ntpath.basename(filepath)  
 
     # Load data
-    red_wine = pd.read_csv(path_red_wine, sep=";")
-    white_wine = pd.read_csv(path_white_wine, sep=";")
+    data = pd.read_csv(path_dir+'/'+filename, sep=";")
 
     # Drop NaN values
-    red_wine = red_wine.dropna(axis="index")
-    white_wine = white_wine.dropna(axis="index")
+    data = data.dropna(axis="index")
 
     # Remove outliers
     if rm_outliers:
-        red_wine = remove_outliers(red_wine)
-        white_wine = remove_outliers(white_wine)
+        data = remove_outliers(data)
         options += "ro_"
 
     # Normalize
     if norm:
         scalerType = StandardScaler if scalerType == "StandardScaler" else MinMaxScaler
-        red_wine = normalize(red_wine, scalerType)
-        white_wine = normalize(white_wine, scalerType)
+        data = normalize(data, scalerType)
         options += "n_"
 
     if max_comp is not None:
         # Search for the X most contributing features
-        princ_comp_red = features_selection(red_wine.iloc[:, :-1], max_comp)
-        princ_comp_white = features_selection(white_wine.iloc[:, :-1], max_comp)
+        princ_comp = features_selection(data.iloc[:, :-1], max_comp)
         # Add quality column
-        princ_comp_red = np.append(princ_comp_red, -1)
-        princ_comp_white = np.append(princ_comp_white, -1)
+        princ_comp = np.append(princ_comp, -1)
         # Keep X principal components
-        red_wine = red_wine.iloc[:, princ_comp_red]
-        white_wine = white_wine.iloc[:, princ_comp_white]
+        data = data.iloc[:, princ_comp]
 
     # Save
-    red_wine.to_csv(path_dir + "/preprocessed_" + options + "red.csv", index=False)
-    white_wine.to_csv(path_dir + "/preprocessed_" + options + "white.csv", index=False)
+    data.to_csv(path_dir + "/preprocessed_" + options + filename, index=False)
 
     print("Preprocessing done !")
-
-
-def parse_arguments():
-    parser = argparse.ArgumentParser(description="Preprocess wine data.")
-    parser.add_argument(
-        "scaler",
-        type=str,
-        help='The name of the scaler : "StandardScaler", "MinMaxScaler"',
-    )
-    parser.add_argument("-n", "--normalize", help="Normalize data", action="store_true")
-    parser.add_argument(
-        "-ro", "--remove_outliers", help="Remove outliers", action="store_true"
-    )
-
-    return parser.parse_args()
-
-
-if __name__ == "__main__":
-    args = parse_arguments()
-
-    print("Preprocessing...")
-
-    preprocess(args.normalize, args.remove_outliers, args.scaler)
