@@ -67,3 +67,10 @@ html_theme_path = [sphinx_theme.get_html_theme_path('stanford-theme')]
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 #html_static_path = ["_static"]
+
+intersphinx_mapping = dict(
+    python=('https://docs.python.org/3', None),
+    numpy=("https://numpy.org/doc/stable/", None),
+    scipy=("https://docs.scipy.org/doc/scipy/reference", None),
+    pandas=("https://pandas.pydata.org/pandas-docs/stable", None),
+)
