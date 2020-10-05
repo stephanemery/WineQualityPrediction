@@ -79,14 +79,17 @@ def main(filepath=None, shuffle=True, normalize=True, remove_outliers=True, scal
         print(m)
 
 
-def parse_arguments():
+def parse_arguments(args):
+    '''
+    Parse the arguments of the command line
+    '''
     parser = argparse.ArgumentParser(description="Predict wine quality from its physicochemical properties.")
     parser.add_argument( "-f",
         "--filepath",
         type=str,
         help='Filepath of the data to process.', default=None
     )
-    parser.add_argument(
+    parser.add_argument( "-s",
         "--scaler",
         type=str,
         help='The name of the scaler : "StandardScaler", "MinMaxScaler"', default="StandardScaler"
@@ -97,10 +100,11 @@ def parse_arguments():
         "-nro", "--not_remove_outliers", help="Do not remove outliers", action="store_true"
     )
 
-    return parser.parse_args()
+    return parser.parse_args(args)
 
 if __name__ == "__main__":
-    args = parse_arguments()    
+    args = parse_arguments(sys.argv[1:])   
+
     try:
         main(args.filepath, not args.not_shuffle, not args.not_normalize, not args.not_remove_outliers, args.scaler)
     except Exception as e:
