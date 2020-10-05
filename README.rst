@@ -1,7 +1,7 @@
 .. image:: https://travis-ci.com/stephanemery/WineQualityPrediction.svg?branch=master
     :target: https://travis-ci.com/stephanemery/WineQualityPrediction
-.. image:: https://coveralls.io/repos/github/stephanemery/WineQualityPrediction/badge.svg
-    :target: https://coveralls.io/github/stephanemery/WineQualityPrediction
+.. image:: https://coveralls.io/repos/github/stephanemery/WineQualityPrediction/badge.svg?branch=master
+    :target: https://coveralls.io/github/stephanemery/WineQualityPrediction?branch=master
 .. image:: https://img.shields.io/badge/docs-latest-orange.svg
     :target: https://stephanemery.github.io/WineQualityPrediction/
 .. image:: https://img.shields.io/badge/github-project-0000c0.svg
