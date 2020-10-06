@@ -6,18 +6,32 @@
 Guide
 ============
 
-This guide explains how to use this package and obtain results published in our paper. Results can be re-generated automatically by executing the following command:
+This guide explains how to use this package and obtain results published in our paper. 
+
+Using the package
+-----------------
+
+Results can be re-generated automatically by executing the following command:
 
 .. code-block:: sh
 
-   (wineQualityPred) python main.py -ns
+   $ wineQualityPred
+
+Using the sources
+-----------------
+
+Results can be re-generated automatically by executing the following command:
+
+.. code-block:: sh
+
+   (WineQualityPrediction) $ python main.py -ns
 
 By executing this command, you should get these results :
 
 .. testcode::
 
-   from main import main
-   main(None, False)
+   from wineQualityPred.paper import predictQuality
+   predictQuality(None, False)
 
 .. testoutput::
    :options: +NORMALIZE_WHITESPACE

@@ -4,7 +4,19 @@
 
 
 Installation
+************
+
+The easy way
 ============
+
+Use pip :
+
+.. code:: sh
+   
+   $ pip install -i https://test.pypi.org/simple/ wineQualityPred
+
+Download the sources
+====================
 
 To download a copy of this package, follow these steps :
 
@@ -35,7 +47,7 @@ This code runs on Python 3.7. To set up the environment, create a new one and in
 
 The dataset used are in the folder data_. If the files are not in the folder, they will be downloaded.
 
-.. _data: https://github.com/stephanemery/WineQualityPrediction/tree/master/data
+.. _data: https://github.com/stephanemery/WineQualityPrediction/tree/Packaging/wineQualityPred/data
 
 
 4 - Run
@@ -45,5 +57,4 @@ Launch the code by running main.py.
 
 .. code:: sh
 
-   (WineQualityPrediction) $  cd wineQualityPred
-   (WineQualityPred) $  python main.py
+   (WineQualityPrediction) $  python main.py
