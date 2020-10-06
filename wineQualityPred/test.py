@@ -3,7 +3,6 @@ import pandas as pd
 import nose.tools as nt
 import os
 import sys
-import main
 
 from wineQualityPred.paper import predictQuality
 from os import path
