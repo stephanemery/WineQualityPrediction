@@ -18,7 +18,7 @@ def predictQuality(filepath=None, shuffle=True, normalize=True, remove_outliers=
     """
     # If no filepath set, use the default one
     if filepath is None :
-        filepath = 'wineQualityPred/data/winequality-red.csv'
+        filepath = './data/winequality-red.csv'
         # If data files don't exist, download them
         # Red wine data
         if not os.path.isfile(filepath):
@@ -29,7 +29,7 @@ def predictQuality(filepath=None, shuffle=True, normalize=True, remove_outliers=
             f=open(filepath, "wb")
             f.write(my_file.content)
             f.close()
-        path_white_wine = 'wineQualityPred/data/winequality-white.csv'
+        path_white_wine = './data/winequality-white.csv'
         # White wine data
         if not os.path.isfile(path_white_wine):
             print("Downloading white wine data...")
@@ -80,4 +80,4 @@ def predictQuality(filepath=None, shuffle=True, normalize=True, remove_outliers=
     
 
 def reproduceResults():
-    predictQuality('./data/winequality-red.csv', False)
+    predictQuality(None, False)
