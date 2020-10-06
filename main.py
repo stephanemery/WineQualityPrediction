@@ -1,6 +1,9 @@
 import sys
 import pandas as pd
 import argparse
+import requests
+import os
+import ntpath
 
 from model.Preprocessing import preprocess
 from model.MultiLinearRegression import MultiLinearRegression
@@ -8,13 +11,37 @@ from model.KNN import KNN
 from model.SVM import SVM
 from sklearn.model_selection import train_test_split
 
-def main(shuffle=True, normalize=True, remove_outliers=True, scalerType="StandardScaler", test_size=0.3, max_components=None):
+def main(filepath=None, shuffle=True, normalize=True, remove_outliers=True, scalerType="StandardScaler", test_size=0.3, max_components=None):
     """
     Preprocess the data and try diffent model of learning on it.
     The function print the score of each model.
     """
+    # If no filepath set, use the default one
+    if filepath is None :
+        filepath = './data/winequality-red.csv'
+        # If data files don't exist, download them
+        # Red wine data
+        if not os.path.isfile(filepath):
+            print("Downloading red wine data...")
+            my_file = requests.get(
+                "https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv"
+            )
+            f=open(filepath, "wb")
+            f.write(my_file.content)
+            f.close()
+        path_white_wine = './data/winequality-white.csv'
+        # White wine data
+        if not os.path.isfile(path_white_wine):
+            print("Downloading white wine data...")
+            my_file = requests.get(
+                "https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv"
+            )
+            f=open(path_white_wine, "wb")
+            f.write(my_file.content)
+            f.close()
+
     # Preprocess
-    preprocess(normalize, remove_outliers, scalerType, max_components)
+    preprocess(filepath, normalize, remove_outliers, scalerType, max_components)
 
     # Load data
     options = "_"
@@ -23,63 +50,46 @@ def main(shuffle=True, normalize=True, remove_outliers=True, scalerType="Standar
     if normalize:
         options += "n_"
 
-    red_wine = pd.read_csv("./data/preprocessed" + options + "red.csv")
-    white_wine = pd.read_csv("./data/preprocessed" + options + "white.csv")
+    data = pd.read_csv("./data/preprocessed" + options + ntpath.basename(filepath))
 
     # Split into train/test dataset
-    red_train_set, red_test_set = train_test_split(
-        red_wine, test_size=test_size, shuffle=shuffle
-    )
-    white_train_set, white_test_set = train_test_split(
-        white_wine, test_size=test_size, shuffle=shuffle
+    train_set, test_set = train_test_split(
+        data, test_size=test_size, shuffle=shuffle
     )
 
     # Models
-    red_models = []
-    white_models = []
+    models = []    
     # Add multi linear regression
-    red_models.append(MultiLinearRegression())
-    white_models.append(MultiLinearRegression())
+    models.append(MultiLinearRegression())    
     # Add KNN regressor
-    red_models.append(KNN())
-    white_models.append(KNN())
+    models.append(KNN())    
     # Add SVM regressor
-    red_models.append(SVM(0, 0.5))
-    white_models.append(SVM(0, 0.5))
+    models.append(SVM(0, 0.5))    
 
-    # Train red wine model
-    for m in red_models:
-        m.train(red_train_set.iloc[:, :-1], red_train_set.iloc[:, -1])
+    # Train models
+    for m in models:
+        m.train(train_set.iloc[:, :-1], train_set.iloc[:, -1])
 
-    # Train white wine model
-    for m in white_models:
-        m.train(white_train_set.iloc[:, :-1], white_train_set.iloc[:, -1])
+    # Test models
+    for m in models:
+        m.test(test_set.iloc()[:, :-1], test_set.iloc()[:, -1])
 
-    # Test red wine model
-    for m in red_models:
-        m.test(red_test_set.iloc()[:, :-1], red_test_set.iloc()[:, -1])
-
-    # Test white wine model
-    for m in white_models:
-        m.test(white_test_set.iloc()[:, :-1], white_test_set.iloc()[:, -1])
-
-    # Print scores for red wine
-    print("Score for the red wine :")
-    for m in red_models:
-        print(m)
-
-    print("")
-
-    # Print scores for white wine
-    print("Score for the white wine :")
-    for m in white_models:
+    # Print scores
+    for m in models:
         print(m)
 
 
-
-def parse_arguments():
+def parse_arguments(args):
+    '''
+    Parse the arguments of the command line
+    '''
     parser = argparse.ArgumentParser(description="Predict wine quality from its physicochemical properties.")
-    parser.add_argument(
+    parser.add_argument( "-f",
+        "--filepath",
+        type=str,
+        help='Filepath of the data to process.', default=None
+    )
+    parser.add_argument( "-s",
         "--scaler",
         type=str,
         help='The name of the scaler : "StandardScaler", "MinMaxScaler"', default="StandardScaler"
@@ -90,9 +100,12 @@ def parse_arguments():
         "-nro", "--not_remove_outliers", help="Do not remove outliers", action="store_true"
     )
 
-    return parser.parse_args()
+    return parser.parse_args(args)
 
 if __name__ == "__main__":
-    args = parse_arguments()
+    args = parse_arguments(sys.argv[1:])   
 
-    main(not args.not_shuffle, not args.not_normalize, not args.not_remove_outliers, args.scaler)
+    try:
+        main(args.filepath, not args.not_shuffle, not args.not_normalize, not args.not_remove_outliers, args.scaler)
+    except Exception as e:
+        print(e)

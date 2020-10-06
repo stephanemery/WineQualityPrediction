@@ -14,6 +14,15 @@ class Machine(ABC):
     def train(self, X, y):
         """
         Train the machine
+        
+        Parameters
+        ==========
+
+        X : numpy.ndarray
+                The training data array (NxM).
+        y : numpy.ndarray
+            The expected output (Nx1)
+
         """
         pass
 
@@ -21,6 +30,15 @@ class Machine(ABC):
     def test(self, X, y):
         """
         Test the machine
+
+        Parameters
+        ==========
+
+        X : numpy.ndarray
+                The training data array (NxM).
+        y : numpy.ndarray
+            The expected output (Nx1)
+
         """
         pass
 
@@ -28,6 +46,19 @@ class Machine(ABC):
     def predict(self, X):
         """
         Predict outputs from inputs data
+
+        Parameters
+        ==========
+
+        X : numpy.ndarray
+                The data array (NxM).
+        
+        Returns
+        =======
+
+        : numpy.ndarray
+            The result of the prediction
+            
         """
         pass
 
