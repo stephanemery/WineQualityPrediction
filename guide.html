@@ -163,35 +163,27 @@
 </pre></div>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Preprocessing done !
-Score for the red wine :
 Multi-Linear Regression
     Score : 0.252751
 KNN Regressor
     Score : 0.178368
 SVM Regressor
     Score : 0.247992
-
-Score for the white wine :
-Multi-Linear Regression
-    Score : 0.174580
-KNN Regressor
-    Score : 0.194311
-SVM Regressor
-    Score : 0.317093
 </pre></div>
 </div>
 <p>You can run main.py with differents options to see how the results change :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>usage: main.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--scaler SCALER<span class="o">]</span> <span class="o">[</span>-nn<span class="o">]</span> <span class="o">[</span>-ns<span class="o">]</span> <span class="o">[</span>-nro<span class="o">]</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>usage: main.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-f FILEPATH<span class="o">]</span> <span class="o">[</span>--scaler SCALER<span class="o">]</span> <span class="o">[</span>-nn<span class="o">]</span> <span class="o">[</span>-ns<span class="o">]</span> <span class="o">[</span>-nro<span class="o">]</span>
 
-Predict wine quality from its physicochemical properties.
+     Predict wine quality from its physicochemical properties.
 
-optional arguments:
-  -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
-  --scaler SCALER       The name of the scaler : <span class="s2">&quot;StandardScaler&quot;</span>, <span class="s2">&quot;MinMaxScaler&quot;</span>
-  -nn, --not_normalize  Do not normalize data
-  -ns, --not_shuffle    Do not shuffle data
-  -nro, --not_remove_outliers
-                        Do not remove outliers
+     optional arguments:
+       -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
+               -f FILEPATH, --filepath FILEPATH              Filepath of the data to process.
+       --scaler SCALER       The name of the scaler : <span class="s2">&quot;StandardScaler&quot;</span>,
+                                                     <span class="s2">&quot;MinMaxScaler&quot;</span>
+       -nn, --not_normalize  Do not normalize data
+       -ns, --not_shuffle    Do not shuffle data
+       -nro, --not_remove_outliers   Do not remove outliers
 </pre></div>
 </div>
 </div>
