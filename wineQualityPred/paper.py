@@ -1,24 +1,24 @@
 import sys
 import pandas as pd
-import argparse
 import requests
 import os
 import ntpath
+import argparse
 
-from model.Preprocessing import preprocess
-from model.MultiLinearRegression import MultiLinearRegression
-from model.KNN import KNN
-from model.SVM import SVM
+from .model.Preprocessing import preprocess
+from .model.MultiLinearRegression import MultiLinearRegression
+from .model.KNN import KNN
+from .model.SVM import SVM
 from sklearn.model_selection import train_test_split
 
-def main(filepath=None, shuffle=True, normalize=True, remove_outliers=True, scalerType="StandardScaler", test_size=0.3, max_components=None):
+def predictQuality(filepath=None, shuffle=True, normalize=True, remove_outliers=True, scalerType="StandardScaler", test_size=0.3, max_components=None):
     """
     Preprocess the data and try diffent model of learning on it.
     The function print the score of each model.
     """
     # If no filepath set, use the default one
     if filepath is None :
-        filepath = './data/winequality-red.csv'
+        filepath = 'wineQualityPred/data/winequality-red.csv'
         # If data files don't exist, download them
         # Red wine data
         if not os.path.isfile(filepath):
@@ -29,7 +29,7 @@ def main(filepath=None, shuffle=True, normalize=True, remove_outliers=True, scal
             f=open(filepath, "wb")
             f.write(my_file.content)
             f.close()
-        path_white_wine = './data/winequality-white.csv'
+        path_white_wine = 'wineQualityPred/data/winequality-white.csv'
         # White wine data
         if not os.path.isfile(path_white_wine):
             print("Downloading white wine data...")
@@ -50,7 +50,7 @@ def main(filepath=None, shuffle=True, normalize=True, remove_outliers=True, scal
     if normalize:
         options += "n_"
 
-    data = pd.read_csv("./data/preprocessed" + options + ntpath.basename(filepath))
+    data = pd.read_csv(ntpath.dirname(filepath)+"/preprocessed" + options + ntpath.basename(filepath))
 
     # Split into train/test dataset
     train_set, test_set = train_test_split(
@@ -77,35 +77,7 @@ def main(filepath=None, shuffle=True, normalize=True, remove_outliers=True, scal
     # Print scores
     for m in models:
         print(m)
+    
 
-
-def parse_arguments(args):
-    '''
-    Parse the arguments of the command line
-    '''
-    parser = argparse.ArgumentParser(description="Predict wine quality from its physicochemical properties.")
-    parser.add_argument( "-f",
-        "--filepath",
-        type=str,
-        help='Filepath of the data to process.', default=None
-    )
-    parser.add_argument( "-s",
-        "--scaler",
-        type=str,
-        help='The name of the scaler : "StandardScaler", "MinMaxScaler"', default="StandardScaler"
-    )
-    parser.add_argument("-nn", "--not_normalize", help="Do not normalize data", action="store_true")
-    parser.add_argument("-ns", "--not_shuffle", help="Do not shuffle data", action="store_true")
-    parser.add_argument(
-        "-nro", "--not_remove_outliers", help="Do not remove outliers", action="store_true"
-    )
-
-    return parser.parse_args(args)
-
-if __name__ == "__main__":
-    args = parse_arguments(sys.argv[1:])   
-
-    try:
-        main(args.filepath, not args.not_shuffle, not args.not_normalize, not args.not_remove_outliers, args.scaler)
-    except Exception as e:
-        print(e)
+def reproduceResults():
+    predictQuality(None, False)
