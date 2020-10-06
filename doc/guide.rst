@@ -32,7 +32,7 @@ By executing this command, you should get these results :
 .. testcode::
 
    from wineQualityPred.paper import predictQuality
-   predictQuality(None, False)
+   predictQuality('wineQualityPred/data/winequality-red.csv', False)
 
 .. testoutput::
    :options: +NORMALIZE_WHITESPACE
