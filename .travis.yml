@@ -9,6 +9,7 @@ install:
   - pip install -r build-requirements.txt
 
 script:
+  - cd wineQualityPred
   - nosetests -sv --with-coverage --cover-package=wineQualityPred test.py
   
   # Build docs

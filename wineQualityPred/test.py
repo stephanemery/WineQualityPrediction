@@ -22,15 +22,15 @@ def test_predictQuality_1():
     Test download data
     '''    
     # Remove file
-    if path.exists("./wineQualityPred/data/winequality-red.csv"):
-        os.remove("./wineQualityPred/data/winequality-red.csv")
-    if path.exists("./wineQualityPred/data/winequality-white.csv"):
-        os.remove("./wineQualityPred/data/winequality-white.csv")
+    if path.exists("./data/winequality-red.csv"):
+        os.remove("./data/winequality-red.csv")
+    if path.exists("./data/winequality-white.csv"):
+        os.remove("./data/winequality-white.csv")
     # Run main
     predictQuality(None, False)
     
-    assert path.exists("./wineQualityPred/data/winequality-red.csv")
-    assert path.exists("./wineQualityPred/data/winequality-white.csv")
+    assert path.exists("./data/winequality-red.csv")
+    assert path.exists("./data/winequality-white.csv")
        
 @contextmanager
 def captured_output():
@@ -116,12 +116,12 @@ def test_preprocess_1():
     norm = False
     rm_outliers = False
     # Remove file
-    if path.exists("./wineQualityPred/data/preprocessed_winequality-red.csv"):
-        os.remove("./wineQualityPred/data/preprocessed_winequality-red.csv")
+    if path.exists("./data/preprocessed_winequality-red.csv"):
+        os.remove("./data/preprocessed_winequality-red.csv")
     # Preprocess data
-    preprocess("./wineQualityPred/data/winequality-red.csv", norm, rm_outliers)
+    preprocess("./data/winequality-red.csv", norm, rm_outliers)
     
-    assert path.exists("./wineQualityPred/data/preprocessed_winequality-red.csv")
+    assert path.exists("./data/preprocessed_winequality-red.csv")
     
 def test_preprocess_2():
     '''
@@ -131,12 +131,12 @@ def test_preprocess_2():
     norm = True
     rm_outliers = False
     # Remove file
-    if path.exists("./wineQualityPred/data/preprocessed_n_winequality-red.csv"):
-        os.remove("./wineQualityPred/data/preprocessed_n_winequality-red.csv")
+    if path.exists("./data/preprocessed_n_winequality-red.csv"):
+        os.remove("./data/preprocessed_n_winequality-red.csv")
     # Preprocess data
-    preprocess("./wineQualityPred/data/winequality-red.csv", norm, rm_outliers)
+    preprocess("./data/winequality-red.csv", norm, rm_outliers)
     
-    assert path.exists("./wineQualityPred/data/preprocessed_n_winequality-red.csv")
+    assert path.exists("./data/preprocessed_n_winequality-red.csv")
     
 def test_preprocess_3():
     '''
@@ -146,12 +146,12 @@ def test_preprocess_3():
     norm = False
     rm_outliers = True
     # Remove file
-    if path.exists("./wineQualityPred/data/preprocessed_ro_winequality-red.csv"):
-        os.remove("./wineQualityPred/data/preprocessed_ro_winequality-red.csv")
+    if path.exists("./data/preprocessed_ro_winequality-red.csv"):
+        os.remove("./data/preprocessed_ro_winequality-red.csv")
     # Preprocess data
-    preprocess("./wineQualityPred/data/winequality-red.csv", norm, rm_outliers)
+    preprocess("./data/winequality-red.csv", norm, rm_outliers)
     
-    assert path.exists("./wineQualityPred/data/preprocessed_ro_winequality-red.csv")
+    assert path.exists("./data/preprocessed_ro_winequality-red.csv")
     
 def test_preprocess_4():
     '''
@@ -161,12 +161,12 @@ def test_preprocess_4():
     norm = True
     rm_outliers = True
     # Remove file
-    if path.exists("./wineQualityPred/data/preprocessed_ro_n_winequality-red.csv"):
-        os.remove("./wineQualityPred/data/preprocessed_ro_n_winequality-red.csv")
+    if path.exists("./data/preprocessed_ro_n_winequality-red.csv"):
+        os.remove("./data/preprocessed_ro_n_winequality-red.csv")
     # Preprocess data
-    preprocess("./wineQualityPred/data/winequality-red.csv", norm, rm_outliers)
+    preprocess("./data/winequality-red.csv", norm, rm_outliers)
     
-    assert path.exists("./wineQualityPred/data/preprocessed_ro_n_winequality-red.csv")    
+    assert path.exists("./data/preprocessed_ro_n_winequality-red.csv")    
     
 def test_KNN_1():
     '''
@@ -260,10 +260,11 @@ def test_SVR_2():
     assert svr.score == 0        
     assert svr.predict(x) is None
     
+'''
 def test_parse_args_1():
-    '''
+    ''
     Test parse_arguments function
-    '''
+    ''
     parser = main.parse_arguments([])
 
     assert parser.filepath is None
@@ -274,9 +275,9 @@ def test_parse_args_1():
 
 
 def test_parse_args_2():
-    '''
+    ''
     Test parse_arguments function
-    '''
+    ''
     parser = main.parse_arguments(["-f", "test.csv", "-ns", "-nn", "-nro", "-s", "MinMaxScaler"])
 
     assert parser.filepath is "test.csv"
@@ -284,3 +285,4 @@ def test_parse_args_2():
     assert parser.not_normalize == True
     assert parser.not_remove_outliers == True
     assert parser.scaler == "MinMaxScaler"
+'''
