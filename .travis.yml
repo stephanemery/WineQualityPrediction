@@ -13,6 +13,7 @@ script:
   - nosetests -sv --with-coverage --cover-package=wineQualityPred test.py
   
   # Build docs
+  - cd ..
   - sphinx-build -b doctest doc sphinx
   - sphinx-build doc sphinx
   - touch sphinx/.nojekyll
