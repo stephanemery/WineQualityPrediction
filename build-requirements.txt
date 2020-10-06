@@ -1,0 +1,6 @@
+coverage
+coveralls
+nose
+sphinx
+sphinx_theme
+twine

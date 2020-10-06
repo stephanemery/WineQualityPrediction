@@ -6,23 +6,15 @@ python:
   - "3.8"
 
 install:
-  # Install phase of our CI pipeline
-  - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
-  - bash miniconda.sh -b -p $HOME/miniconda
-  - source "$HOME/miniconda/etc/profile.d/conda.sh"
-  - hash -r
-  - conda config --set always_yes yes --set changeps1 no
-  - conda update -q conda
-  - conda info -a
-  - conda create -q -n project python=$TRAVIS_PYTHON_VERSION numpy scipy coverage coveralls nose scikit-learn pandas
-  - pip install sphinx sphinx_theme scikit-learn pandas
-  - conda activate project
+  - pip install .
+  - pip install -r build-requirements.txt
 
 script:
-  # Run phase of our CI pipeline
-  - nosetests -sv --with-coverage --cover-package=. test.py
+  - wineQualityPred-main
+  - nosetests -sv --with-coverage --cover-package=wineQualityPred test.py
   
   # Build docs
+  - sphinx-build -b doctest doc sphinx
   - sphinx-build doc sphinx
   - touch sphinx/.nojekyll
   - coveralls #uploads coverage report to coveralls.io
@@ -36,3 +28,12 @@ deploy:
     on:
       branch: master
       condition: $TRAVIS_PYTHON_VERSION=3.7 
+
+    provider: pypi
+    server: https://test.pypi.org/legacy/ # Remove to deployment on pypi.org
+    username: "__token__"
+    password:
+      secure: pypi-AgENdGVzdC5weXBpLm9yZwIkNDU4ZDJlMTAtMTIyMS00Y2IyLWJhYTUtZWY3NWIyZWU5N2U5AAJAeyJwZXJtaXNzaW9ucyI6IHsicHJvamVjdHMiOiBbIndpbmVxdWFsaXR5cHJlZCJdfSwgInZlcnNpb24iOiAxfQAABiBObhjOqRpGRUPYdDBb8IQrhhNPQx78EidGwiLK0n-kCg
+    on:
+      tags: true
+      condition: "$TRAVIS_PYTHON_VERSION = 3.7"

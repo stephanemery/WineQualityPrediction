@@ -1,0 +1,2 @@
+include LICENSE README.rst wineQualityPred/data/* requirements.txt
+recursive-include doc conf.py *.rst *.ico *.png

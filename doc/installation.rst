@@ -45,4 +45,5 @@ Launch the code by running main.py.
 
 .. code:: sh
 
-   (WineQualityPrediction) $  python main.py
+   (WineQualityPrediction) $  cd wineQualityPred
+   (WineQualityPred) $  python main.py

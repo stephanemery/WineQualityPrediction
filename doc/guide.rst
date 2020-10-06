@@ -10,7 +10,7 @@ This guide explains how to use this package and obtain results published in our 
 
 .. code-block:: sh
 
-   (WineQualityPrediction) python main.py -ns
+   (WineQualityPred) python main.py -ns
 
 By executing this command, you should get these results :
 

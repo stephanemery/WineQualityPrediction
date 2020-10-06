@@ -7,8 +7,8 @@ def load_requirements(f):
 
 
 setup(
-    name="rr",
-    version="1.0.0",
+    name="wineQualityPred",
+    version="1.0.0.0",
     description="Wine quality prediction from its physicochimical properties",
     url="https://github.com/stephanemery/WineQualityPrediction",
     license="MIT",
@@ -19,7 +19,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=load_requirements("requirements.txt"),
-    entry_points={"console_scripts": ["wineQaulityPred-main = wineQaulityPred.main:main"]},
+    entry_points={"console_scripts": ["wineQualityPred-main = wineQualityPred.main:main"]},
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
