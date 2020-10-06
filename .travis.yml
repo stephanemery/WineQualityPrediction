@@ -10,7 +10,7 @@ install:
   - pip install -r build-requirements.txt
 
 script:
-  - wineQualityPred-main
+  - cd wineQualityPred
   - nosetests -sv --with-coverage --cover-package=wineQualityPred test.py
   
   # Build docs

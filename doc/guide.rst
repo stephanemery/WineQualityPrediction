@@ -10,14 +10,14 @@ This guide explains how to use this package and obtain results published in our 
 
 .. code-block:: sh
 
-   (WineQualityPred) python main.py -ns
+   (wineQualityPred) python main.py -ns
 
 By executing this command, you should get these results :
 
 .. testcode::
 
-   import main
-   main.main(False)
+   from main import main
+   main(None, False)
 
 .. testoutput::
    :options: +NORMALIZE_WHITESPACE

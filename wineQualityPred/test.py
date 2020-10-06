@@ -3,15 +3,15 @@ import pandas as pd
 import nose.tools as nt
 import os
 import sys
+import main
 
-from . import main
 from os import path
 from contextlib import contextmanager
 from io import StringIO
-from .model.MultiLinearRegression import *
-from .model.Preprocessing import *
-from .model.KNN import *
-from .model.SVM import *
+from model.MultiLinearRegression import *
+from model.Preprocessing import *
+from model.KNN import *
+from model.SVM import *
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 

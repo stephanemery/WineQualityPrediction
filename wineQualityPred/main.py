@@ -5,10 +5,10 @@ import requests
 import os
 import ntpath
 
-from .model.Preprocessing import preprocess
-from .model.MultiLinearRegression import MultiLinearRegression
-from .model.KNN import KNN
-from .model.SVM import SVM
+from model.Preprocessing import preprocess
+from model.MultiLinearRegression import MultiLinearRegression
+from model.KNN import KNN
+from model.SVM import SVM
 from sklearn.model_selection import train_test_split
 
 def main(filepath=None, shuffle=True, normalize=True, remove_outliers=True, scalerType="StandardScaler", test_size=0.3, max_components=None):
