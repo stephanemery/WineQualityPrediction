@@ -17,7 +17,7 @@ By executing this command, you should get these results :
 .. testcode::
 
    import main
-   main.main(False)
+   main.main(None, False)
 
 .. testoutput::
    :options: +NORMALIZE_WHITESPACE
