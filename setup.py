@@ -8,7 +8,7 @@ def load_requirements(f):
 
 setup(
     name="wineQualityPred",
-    version="1.0.3",
+    version="1.0.4",
     description="Wine quality prediction from its physicochimical properties",
     url="https://github.com/stephanemery/WineQualityPrediction",
     license="MIT",
