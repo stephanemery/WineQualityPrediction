@@ -15,6 +15,7 @@ Results can be re-generated automatically by executing the following command:
 
 .. code-block:: sh
 
+   $ mkdir data #Create the folder where the data will be downloaded
    $ wineQualityPred
 
 Using the sources

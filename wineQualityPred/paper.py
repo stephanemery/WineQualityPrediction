@@ -80,4 +80,4 @@ def predictQuality(filepath=None, shuffle=True, normalize=True, remove_outliers=
     
 
 def reproduceResults():
-    predictQuality(None, False)
+    predictQuality('./data/winequality-red.csv', False)
