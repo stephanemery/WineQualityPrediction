@@ -1,4 +1,3 @@
-# From here: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/use-conda-with-travis-ci.html
 language: python
 python:
   # We don't actually use the Travis Python, but this keeps it organized.
@@ -6,26 +5,21 @@ python:
   - "3.8"
 
 install:
-  # Install phase of our CI pipeline
-  - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
-  - bash miniconda.sh -b -p $HOME/miniconda
-  - source "$HOME/miniconda/etc/profile.d/conda.sh"
-  - hash -r
-  - conda config --set always_yes yes --set changeps1 no
-  - conda update -q conda
-  - conda info -a
-  - conda create -q -n project python=$TRAVIS_PYTHON_VERSION numpy scipy coverage coveralls nose scikit-learn pandas
-  - pip install sphinx sphinx_theme scikit-learn pandas
-  - conda activate project
+  - pip install .
+  - pip install -r build-requirements.txt
 
 script:
-  # Run phase of our CI pipeline
-  - nosetests -sv --with-coverage --cover-package=. test.py
+  - cd wineQualityPred
+  - nosetests -sv --with-coverage --cover-package=wineQualityPred test.py
   
   # Build docs
+  - cd ..
+  - sphinx-build -b doctest doc sphinx
   - sphinx-build doc sphinx
   - touch sphinx/.nojekyll
+  - cd wineQualityPred
   - coveralls #uploads coverage report to coveralls.io
+  - cd ..
   
 deploy:
   - provider: pages:git
@@ -36,3 +30,14 @@ deploy:
     on:
       branch: master
       condition: $TRAVIS_PYTHON_VERSION=3.7 
+
+  - provider: pypi
+    server: https://test.pypi.org/legacy/ # Remove to deployment on pypi.org
+    username: "__token__"
+    password:
+      secure: CRfHjkxDMNdbnnCMKfCpKX7DywvgGDrX1UJX7fE5lxcKyvQUuqqSxa0u91U/tfyck/DZkAIZKrT1G8qKDDlBGRdQFRTLqqSj2om3vd5z3ICuFEI2+l6BL0uW6uMki6TKiGGxEQuheXES48MbDdQKIY3soUIbnXJsqTEvGZ00UGqo0/7rlSHj8tPNo9/HUw2yVPZbswT68uj9PLPz+IYRW2m4pJ4zJF9Y6GS1AX70FM4kpQFFEbqus61FF00IRw+Bhej6DO2VBOqRrMaLr4J8e2BNDcM6swKrqACh7ZwhKALOHcr58AEo1D4ZnwxA/eeRaApIS9qrfaYmEo5aHtOx0meGgoRtR00X6Uhs45EebFt1xKwL/CMFARCKme2ezDHbcbW+/5W0WHR1o3iIdpwa2SWYJEA1v1rCb2JZiuVoKt72q0PevcrkVGyQpeJRsz5DKWrbKigyJU7nnSqYFoCxmb8g19d59YdwmT+C2D0yDFoX/77ztmXXAXwzzB+hOu1YSgW7xeIpp2KmUwWzCPyknJdI+ogeuA/6uZqd+Lh4i56+sgZ/W0MFeWz+z/0DNrIlhed/2mKm1KYwEbrMiJkw/QBXZ/2V4rse+dpJ3EGuy3zK9IAsqFljpXIQvQdtTjZc7c7FcOkb2NWYK3xLI2KEv9gI7K/FG/KeAJXO2EANZpU=
+    on:
+      branch: master
+      all_branches: false
+      tags: true
+      condition: "$TRAVIS_PYTHON_VERSION = 3.7"

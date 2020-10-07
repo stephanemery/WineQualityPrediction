@@ -3,22 +3,21 @@ import pandas as pd
 import nose.tools as nt
 import os
 import sys
-import main
 
+from wineQualityPred.paper import predictQuality
 from os import path
 from contextlib import contextmanager
 from io import StringIO
-from model.MultiLinearRegression import *
-from model.Preprocessing import *
-from model.KNN import *
-from model.SVM import *
+from wineQualityPred.model.MultiLinearRegression import *
+from wineQualityPred.model.Preprocessing import *
+from wineQualityPred.model.KNN import *
+from wineQualityPred.model.SVM import *
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 
-
-def test_main_1():
+def test_predictQuality_1():
     '''
-    Test main function
+    Test predictQuality function
     Test download data
     '''    
     # Remove file
@@ -27,11 +26,11 @@ def test_main_1():
     if path.exists("./data/winequality-white.csv"):
         os.remove("./data/winequality-white.csv")
     # Run main
-    main.main(None, False)
+    predictQuality(None, False)
     
     assert path.exists("./data/winequality-red.csv")
     assert path.exists("./data/winequality-white.csv")
-        
+       
 @contextmanager
 def captured_output():
     new_out, new_err = StringIO(), StringIO()
@@ -42,12 +41,12 @@ def captured_output():
     finally:
         sys.stdout, sys.stderr = old_out, old_err
 
-def test_main_2():
+def test_predictQuality_2():
     '''
-    Test main file
+    Test predictQuality function
     '''
     with captured_output() as (out, err):
-        main.main(None, False)
+        predictQuality(None, False)
         
     output = out.getvalue().strip()
 
@@ -260,10 +259,11 @@ def test_SVR_2():
     assert svr.score == 0        
     assert svr.predict(x) is None
     
+'''
 def test_parse_args_1():
-    '''
+    ''
     Test parse_arguments function
-    '''
+    ''
     parser = main.parse_arguments([])
 
     assert parser.filepath is None
@@ -274,9 +274,9 @@ def test_parse_args_1():
 
 
 def test_parse_args_2():
-    '''
+    ''
     Test parse_arguments function
-    '''
+    ''
     parser = main.parse_arguments(["-f", "test.csv", "-ns", "-nn", "-nro", "-s", "MinMaxScaler"])
 
     assert parser.filepath == "test.csv"
@@ -284,3 +284,4 @@ def test_parse_args_2():
     assert parser.not_normalize == True
     assert parser.not_remove_outliers == True
     assert parser.scaler == "MinMaxScaler"
+'''
