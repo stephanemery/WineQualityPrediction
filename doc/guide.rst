@@ -64,4 +64,3 @@ You can run main.py with differents options to see how the results change :
      -ns, --not_shuffle    Do not shuffle data
      -nro, --not_remove_outliers
 	                   Do not remove outliers
-

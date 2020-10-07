@@ -279,7 +279,7 @@ def test_parse_args_2():
     ''
     parser = main.parse_arguments(["-f", "test.csv", "-ns", "-nn", "-nro", "-s", "MinMaxScaler"])
 
-    assert parser.filepath is "test.csv"
+    assert parser.filepath == "test.csv"
     assert parser.not_shuffle == True
     assert parser.not_normalize == True
     assert parser.not_remove_outliers == True
