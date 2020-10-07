@@ -19,6 +19,7 @@ script:
   - touch sphinx/.nojekyll
   - cd wineQualityPred
   - coveralls #uploads coverage report to coveralls.io
+  - cd ..
   
 deploy:
   - provider: pages:git
