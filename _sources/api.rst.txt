@@ -9,30 +9,30 @@ Python API
 KNN
 ---
 
-.. automodule:: model.KNN
+.. automodule:: wineQualityPred.model.KNN
    :members:
 
 Machine
 -------
 
-.. automodule:: model.Machine
+.. automodule:: wineQualityPred.model.Machine
    :members:
 	
 Multi-Linear regression
 -----------------------
 
-.. automodule:: model.MultiLinearRegression
+.. automodule:: wineQualityPred.model.MultiLinearRegression
    :members:
 
 Preprocessing
 -------------
 
-.. automodule:: model.Preprocessing
+.. automodule:: wineQualityPred.model.Preprocessing
    :members:
 
 
 SVM
 ---
 
-.. automodule:: model.SVM
+.. automodule:: wineQualityPred.model.SVM
    :members:

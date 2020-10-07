@@ -85,10 +85,14 @@
             
                 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#clone-this-repo">1 - Clone this repo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#environment">2 - Environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dataset">3 - Dataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#run">4 - Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-easy-way">The easy way</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-the-sources">Download the sources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#clone-this-repo">1 - Clone this repo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment">2 - Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dataset">3 - Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run">4 - Run</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="guide.html">Guide</a></li>
@@ -159,16 +163,25 @@
             
   <div class="section" id="installation">
 <span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-easy-way">
+<h2>The easy way<a class="headerlink" href="#the-easy-way" title="Permalink to this headline">¶</a></h2>
+<p>Use pip :</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install -i https://test.pypi.org/simple/ wineQualityPred
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-the-sources">
+<h2>Download the sources<a class="headerlink" href="#download-the-sources" title="Permalink to this headline">¶</a></h2>
 <p>To download a copy of this package, follow these steps :</p>
 <div class="section" id="clone-this-repo">
-<h2>1 - Clone this repo<a class="headerlink" href="#clone-this-repo" title="Permalink to this headline">¶</a></h2>
+<h3>1 - Clone this repo<a class="headerlink" href="#clone-this-repo" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com/stephanemery/WineQualityPrediction WineQualityPrediction
 $ <span class="nb">cd</span> WineQualityPrediction
 </pre></div>
 </div>
 </div>
 <div class="section" id="environment">
-<h2>2 - Environment<a class="headerlink" href="#environment" title="Permalink to this headline">¶</a></h2>
+<h3>2 - Environment<a class="headerlink" href="#environment" title="Permalink to this headline">¶</a></h3>
 <p>This code runs on Python 3.7. To set up the environment, create a new one and install the requirement via pip.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ conda create -n WineQualityPrediction <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7
 $ conda activate WineQualityPrediction
@@ -177,14 +190,15 @@ $ conda activate WineQualityPrediction
 </div>
 </div>
 <div class="section" id="dataset">
-<h2>3 - Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
-<p>The dataset used are in the folder <a class="reference external" href="https://github.com/stephanemery/WineQualityPrediction/tree/master/data">data</a>. If the files are not in the folder, they will be downloaded.</p>
+<h3>3 - Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h3>
+<p>The dataset used are in the folder <a class="reference external" href="https://github.com/stephanemery/WineQualityPrediction/tree/Packaging/wineQualityPred/data">data</a>. If the files are not in the folder, they will be downloaded.</p>
 </div>
 <div class="section" id="run">
-<h2>4 - Run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h2>
+<h3>4 - Run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h3>
 <p>Launch the code by running main.py.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>WineQualityPrediction<span class="o">)</span> $  python main.py
 </pre></div>
+</div>
 </div>
 </div>
 </div>

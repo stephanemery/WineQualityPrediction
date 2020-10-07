@@ -87,11 +87,11 @@
 <li class="toctree-l1"><a class="reference internal" href="guide.html">Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Python API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-model.KNN">KNN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-model.Machine">Machine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-model.MultiLinearRegression">Multi-Linear regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-model.Preprocessing">Preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-model.SVM">SVM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-wineQualityPred.model.KNN">KNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-wineQualityPred.model.Machine">Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-wineQualityPred.model.MultiLinearRegression">Multi-Linear regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-wineQualityPred.model.Preprocessing">Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-wineQualityPred.model.SVM">SVM</a></li>
 </ul>
 </li>
 </ul>
@@ -159,15 +159,15 @@
             
   <div class="section" id="python-api">
 <span id="wine-quality-api"></span><h1>Python API<a class="headerlink" href="#python-api" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-model.KNN">
-<span id="knn"></span><h2>KNN<a class="headerlink" href="#module-model.KNN" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-wineQualityPred.model.KNN">
+<span id="knn"></span><h2>KNN<a class="headerlink" href="#module-wineQualityPred.model.KNN" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="model.KNN.KNN">
-<em class="property">class </em><code class="sig-prename descclassname">model.KNN.</code><code class="sig-name descname">KNN</code><a class="reference internal" href="_modules/model/KNN.html#KNN"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.KNN.KNN" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.KNN.KNN">
+<em class="property">class </em><code class="sig-prename descclassname">wineQualityPred.model.KNN.</code><code class="sig-name descname">KNN</code><a class="reference internal" href="_modules/wineQualityPred/model/KNN.html#KNN"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.KNN.KNN" title="Permalink to this definition">¶</a></dt>
 <dd><p>K-Nearest Neighbors model</p>
 <dl class="py method">
-<dt id="model.KNN.KNN.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/KNN.html#KNN.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.KNN.KNN.predict" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.KNN.KNN.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/KNN.html#KNN.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.KNN.KNN.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predict the output from the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -183,8 +183,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="model.KNN.KNN.test">
-<code class="sig-name descname">test</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/KNN.html#KNN.test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.KNN.KNN.test" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.KNN.KNN.test">
+<code class="sig-name descname">test</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/KNN.html#KNN.test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.KNN.KNN.test" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -197,8 +197,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="model.KNN.KNN.train">
-<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/KNN.html#KNN.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.KNN.KNN.train" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.KNN.KNN.train">
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/KNN.html#KNN.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.KNN.KNN.train" title="Permalink to this definition">¶</a></dt>
 <dd><p>Train the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -213,14 +213,14 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-model.Machine">
-<span id="machine"></span><h2>Machine<a class="headerlink" href="#module-model.Machine" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-wineQualityPred.model.Machine">
+<span id="machine"></span><h2>Machine<a class="headerlink" href="#module-wineQualityPred.model.Machine" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="model.Machine.Machine">
-<em class="property">class </em><code class="sig-prename descclassname">model.Machine.</code><code class="sig-name descname">Machine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Machine.html#Machine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Machine.Machine" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.Machine.Machine">
+<em class="property">class </em><code class="sig-prename descclassname">wineQualityPred.model.Machine.</code><code class="sig-name descname">Machine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/Machine.html#Machine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.Machine.Machine" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py method">
-<dt id="model.Machine.Machine.predict">
-<em class="property">abstract </em><code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Machine.html#Machine.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Machine.Machine.predict" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.Machine.Machine.predict">
+<em class="property">abstract </em><code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/Machine.html#Machine.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.Machine.Machine.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predict outputs from inputs data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -236,8 +236,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="model.Machine.Machine.test">
-<em class="property">abstract </em><code class="sig-name descname">test</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Machine.html#Machine.test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Machine.Machine.test" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.Machine.Machine.test">
+<em class="property">abstract </em><code class="sig-name descname">test</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/Machine.html#Machine.test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.Machine.Machine.test" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test the machine</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -250,8 +250,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="model.Machine.Machine.train">
-<em class="property">abstract </em><code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Machine.html#Machine.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Machine.Machine.train" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.Machine.Machine.train">
+<em class="property">abstract </em><code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/Machine.html#Machine.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.Machine.Machine.train" title="Permalink to this definition">¶</a></dt>
 <dd><p>Train the machine</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -266,15 +266,15 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-model.MultiLinearRegression">
-<span id="multi-linear-regression"></span><h2>Multi-Linear regression<a class="headerlink" href="#module-model.MultiLinearRegression" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-wineQualityPred.model.MultiLinearRegression">
+<span id="multi-linear-regression"></span><h2>Multi-Linear regression<a class="headerlink" href="#module-wineQualityPred.model.MultiLinearRegression" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="model.MultiLinearRegression.MultiLinearRegression">
-<em class="property">class </em><code class="sig-prename descclassname">model.MultiLinearRegression.</code><code class="sig-name descname">MultiLinearRegression</code><a class="reference internal" href="_modules/model/MultiLinearRegression.html#MultiLinearRegression"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.MultiLinearRegression.MultiLinearRegression" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.MultiLinearRegression.MultiLinearRegression">
+<em class="property">class </em><code class="sig-prename descclassname">wineQualityPred.model.MultiLinearRegression.</code><code class="sig-name descname">MultiLinearRegression</code><a class="reference internal" href="_modules/wineQualityPred/model/MultiLinearRegression.html#MultiLinearRegression"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.MultiLinearRegression.MultiLinearRegression" title="Permalink to this definition">¶</a></dt>
 <dd><p>Multi-Linear Regression model</p>
 <dl class="py method">
-<dt id="model.MultiLinearRegression.MultiLinearRegression.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/MultiLinearRegression.html#MultiLinearRegression.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.MultiLinearRegression.MultiLinearRegression.predict" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.MultiLinearRegression.MultiLinearRegression.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/MultiLinearRegression.html#MultiLinearRegression.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.MultiLinearRegression.MultiLinearRegression.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predict the output from the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -290,8 +290,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="model.MultiLinearRegression.MultiLinearRegression.test">
-<code class="sig-name descname">test</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/MultiLinearRegression.html#MultiLinearRegression.test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.MultiLinearRegression.MultiLinearRegression.test" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.MultiLinearRegression.MultiLinearRegression.test">
+<code class="sig-name descname">test</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/MultiLinearRegression.html#MultiLinearRegression.test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.MultiLinearRegression.MultiLinearRegression.test" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -304,8 +304,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="model.MultiLinearRegression.MultiLinearRegression.train">
-<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/MultiLinearRegression.html#MultiLinearRegression.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.MultiLinearRegression.MultiLinearRegression.train" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.MultiLinearRegression.MultiLinearRegression.train">
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/MultiLinearRegression.html#MultiLinearRegression.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.MultiLinearRegression.MultiLinearRegression.train" title="Permalink to this definition">¶</a></dt>
 <dd><p>Train the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -320,11 +320,11 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-model.Preprocessing">
-<span id="preprocessing"></span><h2>Preprocessing<a class="headerlink" href="#module-model.Preprocessing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-wineQualityPred.model.Preprocessing">
+<span id="preprocessing"></span><h2>Preprocessing<a class="headerlink" href="#module-wineQualityPred.model.Preprocessing" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="model.Preprocessing.features_selection">
-<code class="sig-prename descclassname">model.Preprocessing.</code><code class="sig-name descname">features_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">n_components</span><span class="o">=</span><span class="default_value">5</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Preprocessing.html#features_selection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Preprocessing.features_selection" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.Preprocessing.features_selection">
+<code class="sig-prename descclassname">wineQualityPred.model.Preprocessing.</code><code class="sig-name descname">features_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">n_components</span><span class="o">=</span><span class="default_value">5</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/Preprocessing.html#features_selection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.Preprocessing.features_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Select the most important features of the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -343,8 +343,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="model.Preprocessing.normalize">
-<code class="sig-prename descclassname">model.Preprocessing.</code><code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">scalerType</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Preprocessing.html#normalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Preprocessing.normalize" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.Preprocessing.normalize">
+<code class="sig-prename descclassname">wineQualityPred.model.Preprocessing.</code><code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">scalerType</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/Preprocessing.html#normalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.Preprocessing.normalize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Nomalize the columns of the array passed</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -363,8 +363,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="model.Preprocessing.preprocess">
-<code class="sig-prename descclassname">model.Preprocessing.</code><code class="sig-name descname">preprocess</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filepath</span></em>, <em class="sig-param"><span class="n">norm</span></em>, <em class="sig-param"><span class="n">rm_outliers</span></em>, <em class="sig-param"><span class="n">scalerType</span><span class="o">=</span><span class="default_value">'StandardScaler'</span></em>, <em class="sig-param"><span class="n">max_comp</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Preprocessing.html#preprocess"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Preprocessing.preprocess" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.Preprocessing.preprocess">
+<code class="sig-prename descclassname">wineQualityPred.model.Preprocessing.</code><code class="sig-name descname">preprocess</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filepath</span></em>, <em class="sig-param"><span class="n">norm</span></em>, <em class="sig-param"><span class="n">rm_outliers</span></em>, <em class="sig-param"><span class="n">scalerType</span><span class="o">=</span><span class="default_value">'StandardScaler'</span></em>, <em class="sig-param"><span class="n">max_comp</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/Preprocessing.html#preprocess"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.Preprocessing.preprocess" title="Permalink to this definition">¶</a></dt>
 <dd><p>Preprocess the data of the wine in the <em>data</em> folder.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -379,8 +379,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="model.Preprocessing.remove_outliers">
-<code class="sig-prename descclassname">model.Preprocessing.</code><code class="sig-name descname">remove_outliers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/Preprocessing.html#remove_outliers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Preprocessing.remove_outliers" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.Preprocessing.remove_outliers">
+<code class="sig-prename descclassname">wineQualityPred.model.Preprocessing.</code><code class="sig-name descname">remove_outliers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/Preprocessing.html#remove_outliers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.Preprocessing.remove_outliers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove outliers (data outside of [1%, 99%]).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -396,11 +396,11 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-model.SVM">
-<span id="svm"></span><h2>SVM<a class="headerlink" href="#module-model.SVM" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-wineQualityPred.model.SVM">
+<span id="svm"></span><h2>SVM<a class="headerlink" href="#module-wineQualityPred.model.SVM" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="model.SVM.SVM">
-<em class="property">class </em><code class="sig-prename descclassname">model.SVM.</code><code class="sig-name descname">SVM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">epsilon</span></em>, <em class="sig-param"><span class="n">C</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/SVM.html#SVM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.SVM.SVM" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.SVM.SVM">
+<em class="property">class </em><code class="sig-prename descclassname">wineQualityPred.model.SVM.</code><code class="sig-name descname">SVM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">epsilon</span></em>, <em class="sig-param"><span class="n">C</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/SVM.html#SVM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.SVM.SVM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Support Vector Machine model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -411,8 +411,8 @@
 </dd>
 </dl>
 <dl class="py method">
-<dt id="model.SVM.SVM.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/SVM.html#SVM.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.SVM.SVM.predict" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.SVM.SVM.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/SVM.html#SVM.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.SVM.SVM.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predict the output from the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -428,8 +428,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="model.SVM.SVM.test">
-<code class="sig-name descname">test</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/SVM.html#SVM.test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.SVM.SVM.test" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.SVM.SVM.test">
+<code class="sig-name descname">test</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/SVM.html#SVM.test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.SVM.SVM.test" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -442,8 +442,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="model.SVM.SVM.train">
-<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/model/SVM.html#SVM.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.SVM.SVM.train" title="Permalink to this definition">¶</a></dt>
+<dt id="wineQualityPred.model.SVM.SVM.train">
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wineQualityPred/model/SVM.html#SVM.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wineQualityPred.model.SVM.SVM.train" title="Permalink to this definition">¶</a></dt>
 <dd><p>Train the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

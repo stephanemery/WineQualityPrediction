@@ -18,8 +18,7 @@ Documentation
    guide
    troubleshooting
    api
-	
-	
+
 Indices and tables
 ==================
 

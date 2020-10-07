@@ -13,8 +13,8 @@ You can run unit tests prepared like this (install hypothesis_ first):
 
   # use your package manager to install the package "nose"
   # here, I examplify with "miniconda":
-  (WineQualityPrediction) $ conda install nose
-  (WineQualityPrediction) $ nosetests test.py
+  (WineQualityPred) $ conda install nose
+  (WineQualityPred) $ nosetests test.py
   ....
   ----------------------------------------------------------------------
   Ran 19 tests in 5.897s

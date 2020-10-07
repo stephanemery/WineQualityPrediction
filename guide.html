@@ -85,7 +85,11 @@
             
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-package">Using the package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-sources">Using the sources</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Python API</a></li>
 </ul>
@@ -153,13 +157,24 @@
             
   <div class="section" id="guide">
 <span id="wine-quality-guide"></span><h1>Guide<a class="headerlink" href="#guide" title="Permalink to this headline">¶</a></h1>
-<p>This guide explains how to use this package and obtain results published in our paper. Results can be re-generated automatically by executing the following command:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>WineQualityPrediction<span class="o">)</span> python main.py -ns
+<p>This guide explains how to use this package and obtain results published in our paper.</p>
+<div class="section" id="using-the-package">
+<h2>Using the package<a class="headerlink" href="#using-the-package" title="Permalink to this headline">¶</a></h2>
+<p>Results can be re-generated automatically by executing the following command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ mkdir data <span class="c1">#Create the folder where the data will be downloaded</span>
+$ wineQualityPred
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-sources">
+<h2>Using the sources<a class="headerlink" href="#using-the-sources" title="Permalink to this headline">¶</a></h2>
+<p>Results can be re-generated automatically by executing the following command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>WineQualityPrediction<span class="o">)</span> $ python main.py -ns
 </pre></div>
 </div>
 <p>By executing this command, you should get these results :</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">main</span>
-<span class="n">main</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wineQualityPred.paper</span> <span class="kn">import</span> <span class="n">predictQuality</span>
+<span class="n">predictQuality</span><span class="p">(</span><span class="s1">&#39;wineQualityPred/data/winequality-red.csv&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Preprocessing done !
@@ -172,19 +187,23 @@ SVM Regressor
 </pre></div>
 </div>
 <p>You can run main.py with differents options to see how the results change :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>usage: main.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-f FILEPATH<span class="o">]</span> <span class="o">[</span>--scaler SCALER<span class="o">]</span> <span class="o">[</span>-nn<span class="o">]</span> <span class="o">[</span>-ns<span class="o">]</span> <span class="o">[</span>-nro<span class="o">]</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>usage: main.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-f FILEPATH<span class="o">]</span> <span class="o">[</span>-s SCALER<span class="o">]</span> <span class="o">[</span>-nn<span class="o">]</span> <span class="o">[</span>-ns<span class="o">]</span> <span class="o">[</span>-nro<span class="o">]</span>
 
-     Predict wine quality from its physicochemical properties.
+Predict wine quality from its physicochemical properties.
 
-     optional arguments:
-       -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
-               -f FILEPATH, --filepath FILEPATH              Filepath of the data to process.
-       --scaler SCALER       The name of the scaler : <span class="s2">&quot;StandardScaler&quot;</span>,
-                                                     <span class="s2">&quot;MinMaxScaler&quot;</span>
-       -nn, --not_normalize  Do not normalize data
-       -ns, --not_shuffle    Do not shuffle data
-       -nro, --not_remove_outliers   Do not remove outliers
+optional arguments:
+  -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  -f FILEPATH, --filepath FILEPATH
+                     Filepath of the data to process.
+  -s SCALER, --scaler SCALER
+                     The name of the scaler : <span class="s2">&quot;StandardScaler&quot;</span>,
+                     <span class="s2">&quot;MinMaxScaler&quot;</span>
+  -nn, --not_normalize  Do not normalize data
+  -ns, --not_shuffle    Do not shuffle data
+  -nro, --not_remove_outliers
+                        Do not remove outliers
 </pre></div>
+</div>
 </div>
 </div>
 
