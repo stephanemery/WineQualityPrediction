@@ -49,15 +49,19 @@ You can run main.py with differents options to see how the results change :
 
 .. code-block:: sh
 
-   usage: main.py [-h] [-f FILEPATH] [--scaler SCALER] [-nn] [-ns] [-nro]
+   usage: main.py [-h] [-f FILEPATH] [-s SCALER] [-nn] [-ns] [-nro]
 
-	Predict wine quality from its physicochemical properties.
+   Predict wine quality from its physicochemical properties.
 
-	optional arguments:
-	  -h, --help            show this help message and exit
-		  -f FILEPATH, --filepath FILEPATH		Filepath of the data to process.
-	  --scaler SCALER       The name of the scaler : "StandardScaler",
-							"MinMaxScaler"
-	  -nn, --not_normalize  Do not normalize data
-	  -ns, --not_shuffle    Do not shuffle data
-	  -nro, --not_remove_outliers	Do not remove outliers
+   optional arguments:
+     -h, --help            show this help message and exit
+     -f FILEPATH, --filepath FILEPATH
+	                Filepath of the data to process.
+     -s SCALER, --scaler SCALER
+	                The name of the scaler : "StandardScaler",
+	                "MinMaxScaler"
+     -nn, --not_normalize  Do not normalize data
+     -ns, --not_shuffle    Do not shuffle data
+     -nro, --not_remove_outliers
+	                   Do not remove outliers
+
