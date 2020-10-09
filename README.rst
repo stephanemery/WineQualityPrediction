@@ -19,6 +19,7 @@ Wine quality prediction from its physicochemical properties
 In this project, we try to predict the wine quality from its physicochemical properties.
 
 Methods used :
+--------------
 
 1. Preprocessing
     * Drop NaN values
@@ -30,6 +31,18 @@ Methods used :
     * SVM Regressor
     * KNN Regressor
 
+Results
+-------
+
+.. code:: sh
+   
+   Preprocessing done !
+   Multi-Linear Regression
+           Score : 0.252751
+   KNN Regressor
+           Score : 0.178368
+   SVM Regressor
+           Score : 0.247992
 
 Check the documentation_ to reproduce the results.
 
