@@ -5,9 +5,9 @@
 Troubleshooting
 ===============
 
-You can run unit tests prepared like this (install hypothesis_ first):
+You can run unit tests prepared like this (install nose_ first):
 
-.. _hypothesis: https://hypothesis.readthedocs.io/en/latest/
+.. _nose: https://pypi.org/project/nose/
 
 .. code-block:: shell
 
