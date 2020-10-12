@@ -6,10 +6,10 @@
 Installation
 ************
 
-The easy way
+From pip :
 ============
 
-Use pip :
+Run the command :
 
 .. code:: sh
    
@@ -26,7 +26,7 @@ To download a copy of this package, follow these steps :
 
 .. code:: sh
 
-    $ git clone git@github.com/stephanemery/WineQualityPrediction WineQualityPrediction
+    $ git clone https://github.com/stephanemery/WineQualityPrediction WineQualityPrediction
     $ cd WineQualityPrediction
 
 
@@ -39,7 +39,7 @@ This code runs on Python 3.7. To set up the environment, create a new one and in
 
     $ conda create -n WineQualityPrediction python=3.7
     $ conda activate WineQualityPrediction
-    (WineQualityPrediction) $ pip install requirements.txt
+    (WineQualityPrediction) $ conda install --file requirements.txt
 
 
 3 - Dataset
@@ -48,13 +48,3 @@ This code runs on Python 3.7. To set up the environment, create a new one and in
 The dataset used are in the folder data_. If the files are not in the folder, they will be downloaded.
 
 .. _data: https://github.com/stephanemery/WineQualityPrediction/tree/Packaging/wineQualityPred/data
-
-
-4 - Run
--------
-
-Launch the code by running main.py.
-
-.. code:: sh
-
-   (WineQualityPrediction) $  python main.py
